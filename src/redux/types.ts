@@ -1,5 +1,6 @@
 export interface AppState {
   loading: boolean
+  menuOpened: boolean
   error?: string
 }
 
@@ -28,6 +29,7 @@ export const SET_DEFAULT_THEME = 'SET_DEFAULT_THEME'
 export const SET_ERROR = 'SET_ERROR'
 export const SET_LOADING = 'SET_LOADING'
 export const SET_REMEMBER_ME = 'SET_REMEMBER_ME'
+export const OPEN_CLOSE_MENU = 'OPEN_CLOSE_MENU'
 
 export interface LogOut {
   type: typeof LOGOUT
@@ -62,6 +64,11 @@ export interface SetRememberMe {
   remember: boolean
 }
 
-export type AppActionType =  SetLoading | SetError
+export interface OpenCloseMenu {
+  type: typeof OPEN_CLOSE_MENU
+  opened: boolean
+}
+
+export type AppActionType =  SetLoading | SetError | OpenCloseMenu
 export type ThemeActionType = ToggleTheme | SetDefaultTheme
 export type AuthActionType = LogIn | LogOut | SetRememberMe

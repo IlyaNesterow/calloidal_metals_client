@@ -6,6 +6,8 @@ import {
   SET_ERROR,
   SET_LOADING,
   SET_REMEMBER_ME,
+  OPEN_CLOSE_MENU,
+  OpenCloseMenu,
   Error,
   AuthData,
   LogIn,
@@ -49,4 +51,9 @@ export const setLoading = (loading: boolean): SetLoading => ({
 export const setRememberMe = (remember: boolean): SetRememberMe => ({
   type: SET_REMEMBER_ME,
   remember
+})
+
+export const setMenuOpened = (opened: boolean): OpenCloseMenu => ({
+  type: OPEN_CLOSE_MENU,
+  opened
 })

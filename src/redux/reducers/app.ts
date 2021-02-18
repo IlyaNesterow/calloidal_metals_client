@@ -2,13 +2,15 @@ import {
   AppActionType, 
   AppState, 
   SET_ERROR, 
-  SET_LOADING
+  SET_LOADING,
+  OPEN_CLOSE_MENU
 } from '../types'
 
 
 const initialState: AppState = {
   error: undefined,
-  loading: false
+  loading: false,
+  menuOpened: false
 }
 
 export const appReducer = (state = initialState, action: AppActionType): AppState => {
@@ -22,6 +24,11 @@ export const appReducer = (state = initialState, action: AppActionType): AppStat
       return {
         ...state,
         loading: action.loading
+      }
+    case OPEN_CLOSE_MENU:
+      return {
+        ...state,
+        menuOpened: action.opened
       }
     default:
       return state

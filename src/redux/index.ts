@@ -6,7 +6,7 @@ import { themeReducer } from './reducers/theme'
 
 const rootReducer = combineReducers({
   app: appReducer,
-  authReducer: authReducer,
+  auth: authReducer,
   theme: themeReducer
 })
 
