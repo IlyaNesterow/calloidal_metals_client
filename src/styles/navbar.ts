@@ -12,14 +12,19 @@ const Navbar = styled.nav<NavbarProps>`
   display: flex;
   justify-content: space-between;
   z-index: 5; 
+  position: relative;
 
   #Menu{
     width: 1.3rem;
-    margin-top: 1.8rem;
-    margin-right: 2rem;
+    margin-top: 1.4rem;
+    margin-right: .7rem;
+    padding: 1rem;
+    position: absolute;
+    right: 0; 
+    top: 0;
   } 
   #Menu div{
-    width: 100%;
+    width: 1.1rem;
     height: 2px;
     background-color: ${ props => props.darkTheme ? '#fff' : '#333' }; 
   }
@@ -31,42 +36,31 @@ const Navbar = styled.nav<NavbarProps>`
     left: 0; top: 0;
   }
   #middle{
-    left: 0; top: .5rem;
+    left: 0; top: .3rem;
   }
   #bottom{
-    left: 0; top: 1rem;
+    left: 0; top: .6rem;
   }
-  @media only screen and (max-width: 1120px){
-    #nav-link-area{
-      display: none;
-    }
-    #languages-and-theme{
-      display: none;
-    }
-    #Menu{
-      display: block;
-      position: relative;
-      align-items: center;
-      margin-right: 2rem;
-    } 
-    .opened > #middle{
-      opacity: 1; 
-      width: 100%;
-      margin-left: 0;
-    } 
-    .closed > #middle{
-      opacity: 0;
-      width: 0;
-      margin-left: 50%;
-    }
-    .closed > #top{
-      transform: rotate(45deg);
-      top: .5rem;
-    }
-    .closed > #bottom{
-      transform: rotate(-45deg);
-      top: .5rem;
-    }
+  .opened > #middle{
+    opacity: 1; 
+    width: 1.1rem;
+    margin-left: 0;
+  } 
+  .closed > #middle{
+    opacity: 0;
+    width: 0;
+    margin-left: 50%; 
+  }
+  .closed > #bottom,
+  .closed > #top{
+    top: .3rem;
+    background-color: ${ props => props.darkTheme ? '#555' : '#fff' };  
+  }
+  .closed > #top{
+    transform: rotate(45deg);
+  }
+  .closed > #bottom{
+    transform: rotate(-45deg);
   }
 `
 
