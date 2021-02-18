@@ -34,7 +34,7 @@ export const logout = (): LogOut => ({
   type: LOGOUT
 })
 
-export const toggleThem = (): ToggleTheme => ({
+export const toggleTheme = (): ToggleTheme => ({
   type: TOGGLE_THEME
 })
 

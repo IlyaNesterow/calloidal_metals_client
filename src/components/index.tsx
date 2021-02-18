@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { getTheme } from '../redux/selectors'
+import { getThemeInfo } from '../redux/selectors'
 import { setDefaultTheme, setRememberMe, logout } from '../redux/actions'
 import Global from '../styles/global'
 import { setDefaults } from '../helpers/localStorage'
+import Router from '../router'
 
 
 const App: React.FC = () => {
-  const theme = useSelector(getTheme)
+  const { theme } = useSelector(getThemeInfo)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Global darkTheme={ theme }/>
+      <Router/>
     </div>
   )
 }

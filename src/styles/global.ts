@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
+
 interface props {
   darkTheme: boolean
 }
@@ -17,6 +18,7 @@ const global = createGlobalStyle<props>`
   }
   body {
     transition: background-color .2s;
+    overflow-x: hidden;
     background-color: ${ props => props.darkTheme ? '#111' : '#fefefe' };
     position: relative;
     min-height: 100vh;
