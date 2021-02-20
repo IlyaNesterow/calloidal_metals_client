@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom'
 import Container from '../../../styles/menu-content'
 import { getAppInfo, getThemeInfo } from '../../../redux/selectors'
 import { setMenuOpened } from '../../../redux/actions'
-import { Navlink, NavLinkGenerator } from './types'
-import { links } from './navlinks'
+import { NavLinkGenerator } from './types'
+import { links } from '../../../resources/navlinks'
 import ExtraLinks from './ExtraNavlinks'
 
 
@@ -24,17 +24,20 @@ const Content: React.FC = () => {
       : setRollDown(false)
   }, [ menuOpened ])
 
-  const generateNavLinks: NavLinkGenerator = (links: Navlink[]) => 
+  const generateNavLinks: NavLinkGenerator = (links: string[]) => 
     <>
       {
         links.map(link => 
           <NavLink
-            to={ link.url.startsWith('/') ? link.url : `/${link.url}` }
+            to={ link.startsWith('/') ? link : `/${link.trim()}` }
             className="menu-link"
             onClick={() => dispatch(setMenuOpened(false))}
-            key={ link.label }
+            activeStyle={{
+              color: '#888'
+            }}
+            key={ link }
           >
-            { link.label.toUpperCase() }
+            { link.toUpperCase() }
           </NavLink>
         )
       }

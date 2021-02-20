@@ -35,6 +35,9 @@ const ExtraNavLinks: React.FC = () => {
           to="/admin"
           className="menu-link"
           onClick={() => dispatch(setMenuOpened(false))}
+          activeStyle={{
+            color: '#888',
+          }}
         >
           MODIFY CONTENT
         </NavLink>
