@@ -6,7 +6,7 @@ export const setDefaults = (): void => {
   window.localStorage.removeItem('username')
 }
 
-export const logout = (): void => {
+export const handleLogout = (): void => {
   window.localStorage.removeItem('session')
   window.localStorage.removeItem('username')
 }
@@ -16,10 +16,10 @@ export const login = (username: string, session: string): void => {
   window.localStorage.setItem('session', session)
 }
 
-export const toggleRememberMe = (): void => 
+export const toggleSmth = (key: string): void => 
   window.localStorage.setItem(
-    'rememberMe',
-    window.localStorage.getItem('rememberMe') === 'true'
+    key,
+    window.localStorage.getItem(key) === 'true'
       ? 'false'
       : 'true'
   )

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { getAppInfo, getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/menu'
+import Content from './Content'
 
 
 const Menu: React.FC = () => {
@@ -14,7 +15,9 @@ const Menu: React.FC = () => {
       opened={ menuOpened }
       darkTheme={ theme }
     >
-      <div id="tab"></div>
+      <div id="tab">
+        <Content/>
+      </div>
       <div id="shadow"></div>
     </Container>
   )

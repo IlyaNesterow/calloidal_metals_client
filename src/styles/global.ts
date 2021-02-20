@@ -15,6 +15,14 @@ const global = createGlobalStyle<props>`
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
+    
+  }
+  .no-select{
+    user-select: none; 
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
   }
   body {
     transition: background-color .2s;

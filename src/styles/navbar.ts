@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 interface NavbarProps {
   opened: boolean
   darkTheme: boolean
@@ -11,18 +12,30 @@ const Navbar = styled.nav<NavbarProps>`
   background-color: ${ props => props.darkTheme ? '#111' : '#fff' };
   display: flex;
   justify-content: space-between;
-  z-index: 5; 
   position: relative;
 
   #Menu{
     width: 1.3rem;
-    margin-top: 1.4rem;
-    margin-right: .7rem;
+    margin-top: 1.25rem;
+    margin-right: .75rem;
     padding: 1rem;
     position: absolute;
     right: 0; 
     top: 0;
+    z-index: 5; 
   } 
+  #auth-ctx{
+    right: 4rem;
+    padding: 1rem;
+    position: absolute;
+    right: 3.05; top: 0;
+    color: ${ props => props.darkTheme ? '#eee' : '#111' };
+    font-weight: 600; 
+    font-size: .85rem; 
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    letter-spacing: .03rem;
+    z-index: 2; 
+  }
   #Menu div{
     width: 1.1rem;
     height: 2px;
@@ -54,13 +67,18 @@ const Navbar = styled.nav<NavbarProps>`
   .closed > #bottom,
   .closed > #top{
     top: .3rem;
-    background-color: ${ props => props.darkTheme ? '#555' : '#fff' };  
+    background-color: #888;  
   }
   .closed > #top{
     transform: rotate(45deg);
   }
   .closed > #bottom{
     transform: rotate(-45deg);
+  }
+  @media only screen and (max-width: 1000px){
+    #auth-ctx{
+      display: none;
+    }
   }
 `
 
