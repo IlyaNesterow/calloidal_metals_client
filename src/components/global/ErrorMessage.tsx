@@ -24,6 +24,10 @@ const ErrorMessage: React.FC = () => {
   }, [ error, mounted, setDisplay, setMounted ])
 
   useEffect(() => {
+    if(error) setTimeout(() => dispatch(setError(undefined)), 5000)
+  })
+
+  useEffect(() => {
     document.addEventListener('keydown', (e: KeyboardEvent) => handleKeyDown(e))
     return () => {
       document.removeEventListener('keydown', (e: KeyboardEvent) => handleKeyDown(e))

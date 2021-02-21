@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 import { getAuthInfo } from '../../redux/selectors'
 import { logout, setMenuOpened } from '../../redux/actions'
@@ -12,25 +12,24 @@ const AuthCtx: React.FC = () => {
 
   const dispatch = useDispatch()
 
+  const history = useHistory()
+
   if(window.location.pathname === '/login') return null
 
   const _handleLogout = (): void => {
-    dispatch(logout)
+    dispatch(logout())
     handleLogout()
+    history.push('/silver')
   }
 
   return loggedIn
-    ? <span
+    ? <div
         className="menu-link"
         onClick={ _handleLogout }
         id="auth-ctx"
       >
-        <Redirect
-          to="/silver"
-        >
-          LOG OUT
-        </Redirect>
-      </span>
+        LOG OUT
+      </div>
     : <NavLink 
         to="/login"
         className="menu-link"

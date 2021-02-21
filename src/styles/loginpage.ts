@@ -15,6 +15,7 @@ const Container = styled.div<Props>`
     height: 70%;
     width: 40%;
     padding: 5%;
+    position: relative;
   }
   #content h1{
     margin-bottom: .6rem;
@@ -68,6 +69,41 @@ const Container = styled.div<Props>`
   }
   #content button:hover{
     background-color: #3355aa;
+  }
+  #info{
+    margin-left: .5rem;
+    font-weight: 700;
+  }
+  @media only screen and (max-width: 1000px){
+    #content{
+      width: 60%;
+    }
+  }
+  @media only screen and (max-width: 500px){
+    #content{
+      width: 80%;
+    }
+    #content h1{
+      margin-bottom: .2rem; 
+      font-size: 1.7rem;
+    }
+    #content input{
+      height: 2.3rem;
+      padding: .5rem 1.3rem;
+      font-size: 1rem;
+    }
+    #content p{
+      margin-top: 1.1rem;
+      margin-bottom: .3rem;
+      margin-left: .7rem;
+    }
+    #content button{
+      margin-top: 1.5rem;
+      width: 90%;
+      height: 2.5rem;
+      border-radius: 1.8rem;
+      font-size: 1rem;
+    }
   }
 `
 

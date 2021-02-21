@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
-import { getAuthInfo } from '../redux/selectors'
+import { SpecificRoute } from './SpecificRoute'
 
 import Navbar from '../components/global/navbar'
 import Menu from '../components/global/menu/Menu'
@@ -12,38 +11,31 @@ import SilverPage from '../components/silver'
 import LoginPage from '../components/login'
 
 
-const Router: React.FC = () => {
-  const { loggedIn } = useSelector(getAuthInfo)
+const Router: React.FC = () => (
+  <BrowserRouter>
+    <Navbar/>
+    <Menu/>
+    <ErrorMessage/>
+    <Switch>
+      <Redirect
+        exact
+        from="/"
+        to="/silver"
+      />
+      <Route 
+        exact
+        path="/silver" 
+        component={ SilverPage } 
+      />
+      <SpecificRoute
+        exact
+        path="/login"
+        redirectTo="/silver"
+        component={ LoginPage }
+      />
+    </Switch>
+  </BrowserRouter>
+)
 
-  return(
-    <BrowserRouter>
-      <Navbar/>
-      <Menu/>
-      <ErrorMessage/>
-      <Switch>
-        <Redirect
-          exact
-          from="/"
-          to="/silver"
-        />
-        <Route 
-          exact
-          path="/silver" 
-          component={ SilverPage } 
-        />
-        {loggedIn
-          ? <Redirect
-              to="silver"
-            />
-          : <Route
-              exact
-              path="/login"
-              component={ LoginPage }
-            />
-        }
-      </Switch>
-    </BrowserRouter>
-  )
-}
 
 export default Router

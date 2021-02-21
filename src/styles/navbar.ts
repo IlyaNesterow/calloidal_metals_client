@@ -19,7 +19,7 @@ const Navbar = styled.nav<NavbarProps>`
     margin-top: 1.25rem;
     margin-right: .75rem;
     padding: 1rem;
-    position: absolute;
+    position: fixed;
     right: 0; 
     top: 0;
     z-index: 5; 
@@ -27,7 +27,7 @@ const Navbar = styled.nav<NavbarProps>`
   #auth-ctx{
     right: 4rem;
     padding: 1rem;
-    position: absolute;
+    position: fixed;
     right: 3.05; top: 0;
     color: ${ props => props.darkTheme ? '#eee' : '#111' };
     font-weight: 600; 

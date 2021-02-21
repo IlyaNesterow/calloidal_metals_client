@@ -26,7 +26,7 @@ const Menu = styled.div<MenuProps>`
     transition: opacity .5s;
     top: 0;
     left: ${ props => props.opened ? '0' : '-100vw' };
-    opacity: ${ props => props.opened ? '.05' : '0' };
+    opacity: ${ props => props.opened ? '.3' : '0' };
     background-color: ${ props => props.darkTheme ? 'rgb(255, 255, 255)' : 'rgb(16, 16, 16)' };
     z-index: 2;
   }

@@ -21,13 +21,14 @@ const Container = styled.div<MenuContentPops>`
     height: calc(100% - 1rem); width: calc(100% - 1rem);
     left: 0; top: ${ props => props.rollDown ? '0' : '-100rem' };
     transition: top .5s ease-out;
+    overflow-y: auto;
   }
   .menu-link{
     display: block;
     padding: 1.19rem .8rem;
     margin: 0 .9rem;
     color: ${ props => props.darkTheme ? '#eee' : '#111' };
-    font-weight: 600;
+    font-weight: 500;
     font-size: .85rem;
     letter-spacing: .03rem;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;

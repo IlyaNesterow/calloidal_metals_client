@@ -20,7 +20,7 @@ import {
 } from './types'
 
 
-export const Login = (data: AuthData): LogIn => ({
+export const login = (data: AuthData): LogIn => ({
   type: LOGIN,
   payload: data
 })

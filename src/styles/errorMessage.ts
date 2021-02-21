@@ -18,7 +18,7 @@ const Container = styled.div<Props>`
   #inner-container{
     width: 40%;
     height: 50%;
-    background-color: rgba(255, 50, 50, .7);
+    background-color: rgba(255, 50, 50, .2);
     transition: opacity .5s;
     opacity: ${ props => props.mounted ? '1' : '0' };
     position: relative;
