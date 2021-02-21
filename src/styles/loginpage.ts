@@ -47,7 +47,10 @@ const Container = styled.div<Props>`
     transition: box-shadow .3s;
     color: #${ props => props.darkTheme ? 'ddd' : '333' };
   }
-  #content button{
+  #button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1.8rem;
     width: 90%;
     height: 2.8rem;
@@ -64,16 +67,70 @@ const Container = styled.div<Props>`
     outline: none;
     box-shadow: 0 0 .1rem #888;
   }
-  #content button:focus{
+  #button:focus{
     outline: none;
   }
-  #content button:hover{
+  #button:hover{
     background-color: #3355aa;
   }
   #info{
     margin-left: .5rem;
     font-weight: 700;
   }
+
+  .loader,
+  .loader:before,
+  .loader:after {
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+  }
+  .loader {
+    color: #ffffff;
+    position: relative; 
+    margin-top: -5rem;
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  .loader:before,
+  .loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+  }
+  .loader:before {
+    left: -2rem;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  .loader:after {
+    left: 2rem;
+  }
+  @-webkit-keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5rem 0 -1.3rem;
+    }
+    40% {
+      box-shadow: 0 2.5rem 0 0;
+    }
+  }
+  @keyframes load7 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 2.5rem 0 -1.3rem;
+    }
+    40% {
+      box-shadow: 0 2.5rem 0 0;
+    }
+  }
+
   @media only screen and (max-width: 1000px){
     #content{
       width: 60%;
@@ -97,7 +154,7 @@ const Container = styled.div<Props>`
       margin-bottom: .3rem;
       margin-left: .7rem;
     }
-    #content button{
+    #button{
       margin-top: 1.5rem;
       width: 90%;
       height: 2.5rem;

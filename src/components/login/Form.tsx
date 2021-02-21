@@ -3,20 +3,23 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { isMobile } from 'react-device-detect'
 
-import { InputOnChange, ButtonOnClick, SpanMouseEvent } from '../../types/functions'
+import { InputOnChange, SpanMouseEvent, DivOnClick } from '../../types/functions'
 import { setError, login, setLoading } from '../../redux/actions'
 import { login as loginInLS } from '../../helpers/localStorage'
 
 import PwField from '../global/PasswordField'
 import Info from './Info'
-import Button from './Button'
 
+import useLoadingButton from '../../helpers/hooks/useLoadingButton'
+
+
+const LoadingButton: React.FC<any> = () => <div className="loader"></div>
 
 const Form: React.FC<{ label: string }> = ({ label }) => {
   const dispatch = useDispatch()
 
   const history = useHistory()
-
+ 
   const [ username, setUsername ] = useState<string>('')
   const [ password, setPassword ] = useState<string>('')
   const [ visibleInfo, setVisibleInfo ] = useState<boolean>(false)
@@ -25,17 +28,17 @@ const Form: React.FC<{ label: string }> = ({ label }) => {
 
   const usernameOnChange: InputOnChange = (e) => setUsername(e.target.value)
 
-  const handleSubmit: ButtonOnClick = (e) => {
+  const handleSubmit: DivOnClick = (e) => {
     e.preventDefault()
     dispatch(setLoading(true))
-    /*if(username.length < 5) return dispatch(setError('Username is to short'))
-    if(password.length < 5) return dispatch(setError('Password does not seem to match'))*/
+    if(username.length < 5) return dispatch(setError('Username is to short'))
+    if(password.length < 5) return dispatch(setError('Password does not seem to match'))
     setTimeout(() => {
-      /*dispatch(login({ username: 'Vasya', session: '43432' }))
+      dispatch(login({ username: 'Vasya', session: '43432' }))
       loginInLS(username, 'sdfsdf')
-      history.push('/silver')*/
+      history.push('/silver')
       dispatch(setLoading(false))
-    }, 1000)
+    }, 5000)
   }
 
   const handleClick: SpanMouseEvent = () => {
@@ -52,6 +55,13 @@ const Form: React.FC<{ label: string }> = ({ label }) => {
     if(!isMobile)
       setVisibleInfo(false)
   }
+
+  const [ button ] = useLoadingButton({ 
+    component: LoadingButton, 
+    label: label.toUpperCase(),
+    onClick: handleSubmit,
+    id: 'button' 
+  })
 
   return(
     <form>
@@ -73,10 +83,7 @@ const Form: React.FC<{ label: string }> = ({ label }) => {
       <PwField
         onChange={ pwOnChange }
       /> 
-      <Button
-        onClick={ handleSubmit }
-        label={ label.toUpperCase() }
-      />
+      { button }
     </form>
   )
 }
