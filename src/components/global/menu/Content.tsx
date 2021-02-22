@@ -6,16 +6,16 @@ import Container from '../../../styles/menu-content'
 import { getAppInfo, getThemeInfo } from '../../../redux/selectors'
 import { setMenuOpened } from '../../../redux/actions'
 import { NavLinkGenerator } from './types'
-import { links } from '../../../resources/navlinks'
+import { Pages } from '../../../types/index'
 import ExtraLinks from './ExtraNavlinks'
 
 
 const Content: React.FC = () => {
   const { menuOpened } = useSelector(getAppInfo)
   const { theme } = useSelector(getThemeInfo)
-
+  
   const dispatch = useDispatch()
-   
+  
   const [ rollDown, setRollDown ] = useState<boolean>(false) 
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Content: React.FC = () => {
       ? setTimeout(() => setRollDown(true), 150)
       : setRollDown(false)
   }, [ menuOpened ])
-
+  
   const generateNavLinks: NavLinkGenerator = (links: string[]) => 
     <>
       {
@@ -42,7 +42,7 @@ const Content: React.FC = () => {
         )
       }
     </>
-
+  
   return(
     <Container 
       opened={ menuOpened }
@@ -50,7 +50,7 @@ const Content: React.FC = () => {
       darkTheme={ theme }
     >
       <div id="inner-container">
-        { generateNavLinks(links) }
+        { generateNavLinks(Pages) }
         <ExtraLinks/>
       </div>
     </Container>

@@ -7,8 +7,10 @@ import Navbar from '../components/global/navbar'
 import Menu from '../components/global/menu/Menu'
 import ErrorMessage from '../components/global/ErrorMessage'
 
-import SilverPage from '../components/silver'
+import Page from '../components/page'
 import LoginPage from '../components/login'
+
+import { Pages } from '../types/index'
 
 
 const Router: React.FC = () => (
@@ -22,11 +24,13 @@ const Router: React.FC = () => (
         from="/"
         to="/silver"
       />
-      <Route 
-        exact
-        path="/silver" 
-        component={ SilverPage } 
-      />
+      {Pages.map(pg =>
+        <Route 
+          exact
+          path={`/${ pg }`} 
+          component={() => <Page page={ pg }/> } 
+        />)
+      }
       <SpecificRoute
         exact
         path="/login"

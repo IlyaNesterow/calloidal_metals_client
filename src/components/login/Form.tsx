@@ -10,7 +10,7 @@ import { login as loginInLS } from '../../helpers/localStorage'
 import PwField from '../global/PasswordField'
 import Info from './Info'
 
-import useLoadingButton from '../../helpers/hooks/useLoadingButton'
+import { useLoadingButton } from '../../helpers/hooks'
 
 
 const LoadingButton: React.FC<any> = () => <div className="loader"></div>
@@ -30,9 +30,9 @@ const Form: React.FC<{ label: string }> = ({ label }) => {
 
   const handleSubmit: DivOnClick = (e) => {
     e.preventDefault()
-    dispatch(setLoading(true))
     if(username.length < 5) return dispatch(setError('Username is to short'))
     if(password.length < 5) return dispatch(setError('Password does not seem to match'))
+    dispatch(setLoading(true))
     setTimeout(() => {
       dispatch(login({ username: 'Vasya', session: '43432' }))
       loginInLS(username, 'sdfsdf')
