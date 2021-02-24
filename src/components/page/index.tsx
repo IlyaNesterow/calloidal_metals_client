@@ -106,4 +106,4 @@ const Main: React.FC<Props> = ({ page, maxSlides }) => {
   )
 }
 
-export default Main
+export default React.memo(Main)

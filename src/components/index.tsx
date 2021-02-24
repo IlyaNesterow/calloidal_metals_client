@@ -33,12 +33,10 @@ const App: React.FC = () => {
       else throw new Error()
     })
     .then((res: Content) => {
-      console.log(res)
       setContent(res)
       setEmptyBox(false)
     })  
     .catch((err: Error) => {
-      console.log(err)
       dispatch(setError('Failed to fetch content'))
     })
   }, [ dispatch ])

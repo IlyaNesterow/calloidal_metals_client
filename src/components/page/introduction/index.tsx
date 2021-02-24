@@ -20,7 +20,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
   
   const { setCurrentX, transformX, currentX } = useTransforms(true)
 
-  const currentForStyle = useDelay(currentX, 1000)
+  const currentForStyle = useDelay(currentX, 300)
  
   const handleControlClick: HandleControlBarClick = (num) => setCurrentX(num)
   
@@ -49,5 +49,6 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
     </Container>
   )
 }
+
 
 export default IntroductionComponent

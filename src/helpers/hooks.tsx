@@ -64,8 +64,8 @@ export const useTransforms: TransformHook = (moveX, moveY) => {
   }
 
   useEffect(() => {
-    document.addEventListener('resize', updateTransforms)
-    return () => document.removeEventListener('resize', updateTransforms)
+    window.addEventListener('resize', updateTransforms)
+    return () => window.removeEventListener('resize', updateTransforms)
   })
 
   useEffect(() => {
