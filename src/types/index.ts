@@ -25,7 +25,7 @@ interface SubSection extends SectionWithResizableImage{
   arguments: Argument[]
 }
 
-interface VideoContent{
+export interface VideoContent{
   url: string
   description: string
 }

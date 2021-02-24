@@ -15,7 +15,6 @@ const Page = styled.div<Props>`
     transform: translateY(${ props => props.transformY }px);
     transition: transform .5s ease-in-out;
   }
-
   .page-with-bg-img{
     width: 100vw;
     height: 100vh;

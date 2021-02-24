@@ -1,16 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../redux/selectors'
-import Container from '../../styles/info'
+import { getThemeInfo } from '../../../redux/selectors'
+import Container from '../../../styles/howProduced'
 
-import { Info } from '../../types/index'
+import { HowProduced } from '../../../types/index'
 
 interface Props {
-  content: Info
+  content: HowProduced
 }
 
-const InfoComponent: React.FC<Props> = ({ content }) => {
+const HowProducedComponent: React.FC<Props> = ({ content }) => {
   const { theme } = useSelector(getThemeInfo)
 
   return(
@@ -26,4 +26,4 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
   )
 }
 
-export default InfoComponent
+export default HowProducedComponent

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../redux/selectors'
-import Container from '../../styles/sellers'
+import { getThemeInfo } from '../../../redux/selectors'
+import Container from '../../../styles/sellers'
 
-import { Sellers } from '../../types'
+import { Sellers } from '../../../types'
 
 interface Props {
   content: Sellers

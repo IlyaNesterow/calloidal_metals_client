@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../redux/selectors'
-import Container from '../../styles/otherResources'
+import { getThemeInfo } from '../../../redux/selectors'
+import Container from '../../../styles/otherResources'
 
 
 const OtherResources: React.FC<any> = () => {
