@@ -28,7 +28,13 @@ const Router: React.FC = () => (
         <Route 
           exact
           path={`/${ pg }`} 
-          component={() => <Page page={ pg }/> } 
+          key={ pg }
+          component={() => 
+            <Page 
+              page={ pg }
+              maxSlides={ 2 }
+            /> 
+          } 
         />)
       }
       <SpecificRoute
@@ -40,6 +46,5 @@ const Router: React.FC = () => (
     </Switch>
   </BrowserRouter>
 )
-
 
 export default Router

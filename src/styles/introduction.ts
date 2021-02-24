@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 interface Props {
-  bgImage: string
+  bgImage?: string
   darkTheme: boolean
 }
 
 const Container = styled.div<Props>`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
   
   ::before {
     content: "";

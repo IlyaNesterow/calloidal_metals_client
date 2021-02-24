@@ -4,18 +4,24 @@ import { useSelector } from 'react-redux'
 import { getThemeInfo } from '../../redux/selectors'
 import Container from '../../styles/introduction'
 
+import { Introduction } from '../../types'
 
-const Introduction: React.FC<any> = () => {
+interface Props {
+  content: Introduction
+}
+
+const IntroductionComponent: React.FC<Props> = ({ content }) => {
   const { theme } = useSelector(getThemeInfo)
-  
+  console.log(content)
   return(
     <Container 
       darkTheme={ theme }
-      bgImage="https://upload.wikimedia.org/wikipedia/commons/1/1e/San_Francisco_from_the_Marin_Headlands_in_March_2019.jpg"
+      className="page-with-bg-img"
+      bgImage={ content.bgImage }
     >
   
     </Container>
   )
 }
 
-export default Introduction
+export default IntroductionComponent
