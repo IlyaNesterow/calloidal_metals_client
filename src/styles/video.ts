@@ -15,6 +15,7 @@ const Container = styled.div<Props>`
   transition: opacity .7s;
   opacity: ${ props => props.current === props.num ? '1' : '0' };
   height: 100vh;
+  min-height: 550px;
   min-width: 100vw;
 
   h3{
@@ -51,6 +52,7 @@ const Container = styled.div<Props>`
       box-shadow: none;
       border-radius: .5rem;
     }
+    min-height: 450px;
   }
   @media only screen and (max-width: 700px){
     padding-top: 9%;

@@ -9,6 +9,7 @@ interface Props {
 
 const Container = styled.div<Props>`
   position: relative;
+  min-height: 550px;
   overflow: hidden;
 
   #ribbon{
@@ -54,7 +55,7 @@ const Container = styled.div<Props>`
     background-image: url(${ props => props.bgImage });
     background-size: cover;
   }
-  #intro::before, #intro-ribbon, #intro, #video{
+  #intro::before, #intro, #video{
     min-height: 550px;
   }
   @media only screen and (max-width: 1000px){
@@ -73,9 +74,10 @@ const Container = styled.div<Props>`
       line-height: 2rem;
       margin-left: 0;
     }
-    #intro::before, #intro-ribbon, #intro, #video {
+    #intro::before, #intro, #video {
       min-height: 450px;
     }
+    min-height: 450px;
   }
   @media only screen and (max-width: 700px){
     #intro h2{

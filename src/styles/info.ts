@@ -8,7 +8,7 @@ interface Props {
 
 const Container = styled.div<Props>`
   overflow: hidden;
-  min-height: 550px;
+  min-height: 650px;
   position: relative;
 
   #ribbon{
@@ -23,10 +23,8 @@ const Container = styled.div<Props>`
     position: absolute;
     background-size: cover;
     z-index: -1;
-    left: 0;
-    top: 0; 
-    width: 100%; 
-    height: 100%;
+    left: 1px; top: 1px; 
+    width: calc(100% - 2px);  height: calc(100% - 2px);
   }
 `
 

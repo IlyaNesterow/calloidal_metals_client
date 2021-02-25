@@ -14,7 +14,7 @@ const Container = styled.div<Props>`
     ${ props => props.bgImageHeight ? ((100 - props.bgImageHeight) / 2 ) : 0 }vh 
     ${ props => props.bgImageWidth ? ((100 - props.bgImageWidth) / 2 ) : 0 }vw;
   min-width: ${ props => props.bgImageWidth || 100 }vw;
-  min-height: ${ props => props.bgImageHeight || 100 }vh;
+  height: ${ props => props.bgImageHeight || 100 }vh;
   background-color: ${ props => props.darkTheme ? 'rgba(10, 10, 10, .7)' : 'rgba(250, 250, 250, .7)' };
   padding: 1rem;
   overflow: scroll;
@@ -48,6 +48,24 @@ const Container = styled.div<Props>`
     border-radius: .2rem;
     filter: blur(${ props => props.current ? '1px' : '20px' });
     /*box-shadow: ${ props => '0 0 50px 2rem ' + (props.current ? 'transparent' : (props.darkTheme ? '#222' : '#fff')) } inset;*/
+  }
+  @media only screen and (max-height: 630px){
+    min-height: 650px;
+  }
+  @media only screen and (max-width: 1000px){
+    h2{
+      margin: 1rem;
+      padding-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    p{
+      margin: .5rem;
+    }
+    min-height: 650px;
+    margin: 0;
+    min-width: 100vw;
+    padding: 1rem;
+    overflow: hidden;
   }
 `
 

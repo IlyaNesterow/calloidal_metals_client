@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import Container from '../../../styles/pdfFile'
 import { getThemeInfo } from '../../../redux/selectors'
+import PDFPreview from './PDFPreview'
 
 import { PdfFile } from '../../../types/index'
 
@@ -20,17 +21,12 @@ const PDFFile: React.FC<Props> = ({ url, description, ...props }) => {
       id="pdf-file"
     >
       <h3>{ description }</h3>
-      <div id="pdf-links">
-        <a 
-          href={ url }
-          rel="noreferrer"
-          target="_blank"
-        >View</a>
-        <a 
-          href={ url }
-          download
-        >Download</a>
-      </div>
+      <PDFPreview url={ url }/>
+      <a 
+        href={ url }
+        rel="noreferrer"
+        target="_blank"
+      >View</a>
     </Container>
   )
 }

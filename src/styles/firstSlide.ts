@@ -13,8 +13,13 @@ const Container = styled.div<Props>`
     ${ props => props.bgImageHeight ? ((100 - props.bgImageHeight) / 2 ) : 0 }vh 
     ${ props => props.bgImageWidth ? ((100 - props.bgImageWidth) / 2 ) : 0 }vw;
   min-width: ${ props => props.bgImageWidth || 100 }vw;
-  min-height: ${ props => props.bgImageHeight || 100 }vh;
-  background-color: ${ props => props.darkTheme ? 'rgba(10, 10, 10, .7)' : 'rgba(250, 250, 250, .7)' };
+  height: ${ props => props.bgImageHeight || 100 }vh;
+  transition: background-color 1s;
+  background-color: ${ 
+    props => props.darkTheme 
+      ? (props.current ? 'rgba(10, 10, 10, .7)' : '#111') 
+      : (props.current ? 'rgba(250, 250, 250, .7)' : '#fff')
+  };
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +33,20 @@ const Container = styled.div<Props>`
   }
   ::before {
     background-image: url(${ props => props.bgImage });
+  }
+  @media only screen and (max-width: 1000px){
+    p{
+      font-size: 1.3rem;
+    }
+    min-height: 650px;
+  }
+  @media only screen and (max-width: 500px){
+    margin: 0;
+    min-width: 100vw;
+    height: 100vh;
+    p{
+      width: 90%;
+    }
   }
 `
 

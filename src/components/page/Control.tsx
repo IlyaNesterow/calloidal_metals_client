@@ -16,31 +16,34 @@ const Control: React.FC<Props> = ({ onClick, current, amount }) => {
   
   type CreateBtns = () => JSX.Element[]  
 
-  const createBtns: CreateBtns = () => {
-    const items = []
+  const createBars: CreateBtns = () => {
+    const bars = []
     for(let i = 0; i < amount; i++){
-      const item = (
+      const bar = (
         <div 
-          key={ i }
+          className="bar-container"
           onClick={() => onClick(i)}
         >
           <span 
-            className="bar"
-            id={current === i ? 'current' : ''}
-          ></span>
+            id={ current === i ? 'current' : '' }
+            className="bar" 
+            key={ i }
+          >
+          </span>
         </div>
       )
-      items.push(item)
+      bars.push(bar)
     }
-    return items
-  }
+
+    return bars
+  } 
   
   return(
     <Container 
       darkTheme={ theme } 
       amount={ 2 }
     >
-      { createBtns() }
+      { createBars() }
     </Container>
   )
 }

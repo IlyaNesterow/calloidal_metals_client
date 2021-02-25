@@ -14,6 +14,7 @@ const Page = styled.div<Props>`
   #ribbon{
     width: auto;
     height: 100vh;
+    min-height: 550px;
     display: flex;
     transition: transform .4s ease-in;
   }
@@ -31,6 +32,9 @@ const Page = styled.div<Props>`
   @media only screen and (max-width: 1000px){
     .page-with-bg-img{
       min-height: 450px;
+    }
+    #ribbon{
+      min-height: 450px !important;
     }
   }
 `
