@@ -37,7 +37,7 @@ interface PdfFile extends SectionWithResizableImage {
 
 export interface Introduction extends SectionWithImage {
   text: string
-  video?: VideoContent
+  videos?: VideoContent[]
 }
 
 export interface Info extends SectionWithResizableImage {

@@ -5,7 +5,7 @@ import { getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/introduction'
 import Intro from './Intro'
 import Video from './Video'
-import Control from './Control'
+import Control from '../Control'
 
 import { Introduction } from '../../../types'
 import { HandleControlBarClick } from '../../../types/functions'
@@ -36,12 +36,20 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
           title={ content.title as string }
           text={ content.text }
         />
-        {content.video && 
-          <Video { ...content.video }/>
+        {content.videos && content.videos.length > 0 &&
+          content.videos.map((v, i) => (
+            <Video 
+              key={ v.url } 
+              { ...v } 
+              num={ i + 1 }
+              current={ currentForStyle }
+            />
+          ))
         }
       </div>
-      {content.video && 
+      {content.videos && content.videos.length > 0 &&
         <Control 
+          amount={ 1 + content.videos.length }
           current={ currentX }
           onClick={ handleControlClick }
         />
