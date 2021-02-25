@@ -11,11 +11,7 @@ const Container = styled.div<Props>`
   position: relative;
   overflow: hidden;
 
-  #intro-ribbon{
-    width: auto;
-    height: 100vh;
-    display: flex;
-    transition: transform .4s ease-in;
+  #ribbon{
     transform: translateX(-${ props => props.transformX }px);
   }
   #wrapper{

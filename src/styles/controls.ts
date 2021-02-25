@@ -21,8 +21,8 @@ const Container = styled.div<Props>`
     align-items: center;
   }
   .bar{
-    width: .5rem;
-    height: .5rem;
+    width: 1rem;
+    height: .1rem;
     border-radius: 1rem;
     display: block;
     transition: all .3s;
@@ -30,7 +30,6 @@ const Container = styled.div<Props>`
   }
   #current{
     background-color: #3355ff;
-    height: .75rem; width: .75rem;
   }
 `
 

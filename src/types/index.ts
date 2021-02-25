@@ -20,9 +20,9 @@ interface Argument{
   statement: string
 }
 
-interface SubSection extends SectionWithResizableImage{
+export interface SubSection extends SectionWithResizableImage{
   text?: string
-  arguments: Argument[]
+  _arguments: Argument[]
 }
 
 export interface VideoContent{
@@ -30,7 +30,7 @@ export interface VideoContent{
   description: string
 }
 
-interface PdfFile extends SectionWithResizableImage {
+export interface PdfFile extends SectionWithResizableImage {
   url: string
   description: string
 }

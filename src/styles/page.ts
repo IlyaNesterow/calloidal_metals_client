@@ -12,8 +12,10 @@ const Page = styled.div<Props>`
   height: auto;
 
   #ribbon{
-    transform: translateY(${ props => props.transformY }px);
-    transition: transform .5s ease-in-out;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    transition: transform .4s ease-in;
   }
   .page-with-bg-img{
     width: 100vw;

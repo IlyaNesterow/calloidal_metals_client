@@ -31,7 +31,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
       transformX={ transformX }
       current={ currentForStyle }
     >
-      <div id="intro-ribbon">
+      <div id="ribbon"> 
         <Intro
           title={ content.title as string }
           text={ content.text }

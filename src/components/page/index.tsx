@@ -84,21 +84,19 @@ const Main: React.FC<Props> = ({ page, maxSlides }) => {
           isMobile={ isMobile }
         >
           <CurrentPage.Provider value={ page }>
-            <div id="ribbon">
-              <IntroductionComponent 
-                content={ getPage(content as Content)?.introduction as Introduction }/>
-              <InfoComponent
-                content={ getPage(content as Content)?.info as Info }/>
-              {getPage(content as Content)?.howProduced &&
-                <HowProducedComponent
-                  content={ getPage(content as Content)?.howProduced as HowProduced }/>
-              }
-              <SellersComponent
-                content={ getPage(content as Content)?.sellers as Sellers }/> 
-              {getPage(content as Content)?.otherSources &&
-                <OtherResourcesComponent/>
-              }
-            </div>
+            <IntroductionComponent 
+              content={ getPage(content as Content)?.introduction as Introduction }/>
+            <InfoComponent
+              content={ getPage(content as Content)?.info as Info }/>
+            {getPage(content as Content)?.howProduced &&
+              <HowProducedComponent
+                content={ getPage(content as Content)?.howProduced as HowProduced }/>
+            }
+            <SellersComponent
+              content={ getPage(content as Content)?.sellers as Sellers }/> 
+            {getPage(content as Content)?.otherSources &&
+              <OtherResourcesComponent/>
+            }
           </CurrentPage.Provider>
         </Container>
       }

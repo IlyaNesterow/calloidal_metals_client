@@ -2,19 +2,31 @@ import styled from 'styled-components'
 
 
 interface Props {
-  bgImage?: string
-  bgImageWidth?: number
-  bgImageHeight?: number
   darkTheme: boolean
+  transformX: number
 }
 
 const Container = styled.div<Props>`
-  ::before {
-    left: ${ props => props.bgImageWidth ? ((100 - props.bgImageWidth) / 2 ) : 0 }vw;
-    top: ${ props => props.bgImageHeight ? ((100 - props.bgImageHeight) / 2 ) : 0 }vh; 
-    width: ${ props => props.bgImageWidth }vw; 
-    height: ${ props => props.bgImageHeight }vh;
-    background-image: url(${ props => props.bgImage });
+  overflow: hidden;
+  min-height: 550px;
+  position: relative;
+
+  #ribbon{
+    transform: translateX(-${ props => props.transformX }px);
+  }
+  #first-slide, #sub-section, #pdf-file{
+    position: relative;
+  }
+  #first-slide::before, 
+  #sub-section::before {
+    content: "";
+    position: absolute;
+    background-size: cover;
+    z-index: -1;
+    left: 0;
+    top: 0; 
+    width: 100%; 
+    height: 100%;
   }
 `
 
