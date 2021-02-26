@@ -29,7 +29,6 @@ const Container = styled.div<Props>`
     font-size: 2.9rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
-    letter-spacing: .1rem;
     text-align: right;
     margin-right: 20%;
     transition: margin .7s;

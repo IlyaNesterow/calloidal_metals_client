@@ -40,7 +40,7 @@ export interface Introduction extends SectionWithImage {
   videos?: VideoContent[]
 }
 
-export interface Info extends SectionWithResizableImage {
+export interface Info extends SectionWithImage {
   summary: string
   pdfFile?: PdfFile
   subSections?: SubSection[]
@@ -50,12 +50,17 @@ export interface HowProduced extends SectionWithResizableImage {
   text: string
 }
 
+export interface Link {
+  _name: string 
+  url: string
+}
+
 export interface Sellers extends SectionWithResizableImage {
-  sellers: { name: string, url: string }[]
+  sellers: Link[]
 }
 
 export interface OtherSources extends Section {
-  urls: { url: string, label: string }[]
+  urls: Link[]
 }
 
 export interface Page {

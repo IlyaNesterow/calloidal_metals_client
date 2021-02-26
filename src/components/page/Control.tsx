@@ -23,11 +23,11 @@ const Control: React.FC<Props> = ({ onClick, current, amount }) => {
         <div 
           className="bar-container"
           onClick={() => onClick(i)}
+          key={ i }
         >
           <span 
             id={ current === i ? 'current' : '' }
             className="bar" 
-            key={ i }
           >
           </span>
         </div>

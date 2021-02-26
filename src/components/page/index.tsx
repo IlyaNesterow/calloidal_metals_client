@@ -14,7 +14,7 @@ import SellersComponent from './sellers'
 import OtherResourcesComponent from './other'
 
 import { PageContent } from '../../helpers/contexts'
-import { Page, Content, Introduction, Info, HowProduced, Sellers } from '../../types/index'
+import { Page, Content, Introduction, Info, HowProduced, Sellers, OtherSources } from '../../types/index'
 
 
 interface Props {
@@ -90,12 +90,15 @@ const Main: React.FC<Props> = ({ page, maxSlides }) => {
               content={ getPage(content as Content)?.info as Info }/>
             {getPage(content as Content)?.howProduced &&
               <HowProducedComponent
+                current={ true }
                 content={ getPage(content as Content)?.howProduced as HowProduced }/>
             }
             <SellersComponent
               content={ getPage(content as Content)?.sellers as Sellers }/> 
             {getPage(content as Content)?.otherSources &&
-              <OtherResourcesComponent/>
+              <OtherResourcesComponent
+                current={ true }
+                content={ getPage(content as Content)?.otherSources as OtherSources }/>
             }
           </CurrentPage.Provider>
         </Container>

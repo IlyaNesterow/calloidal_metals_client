@@ -48,7 +48,7 @@ const Container = styled.div<Props>`
     }
     iframe{
       width: 98%;
-      height: 80%;
+      height: 65%;
       margin-left: 1%;
     }
   }

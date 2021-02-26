@@ -17,22 +17,11 @@ const Page = styled.div<Props>`
     min-height: 550px;
     display: flex;
     transition: transform .4s ease-in;
-  }
-  .page-with-bg-img{
-    width: 100vw;
-    height: 100vh;
-    min-height: 550px;
-    position: relative;
-  }
-  .page-with-bg-img::before {
-    content: "";
-    position: absolute;
-    background-size: cover;
+  } 
+  h2{
+    letter-spacing: .1rem;
   }
   @media only screen and (max-width: 1000px){
-    .page-with-bg-img{
-      min-height: 450px;
-    }
     #ribbon{
       min-height: 450px !important;
     }

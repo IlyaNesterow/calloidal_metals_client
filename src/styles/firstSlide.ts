@@ -20,25 +20,34 @@ const Container = styled.div<Props>`
       ? (props.current ? 'rgba(10, 10, 10, .7)' : '#111') 
       : (props.current ? 'rgba(250, 250, 250, .7)' : '#fff')
   };
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  padding: 2%;
+  
+  h2{
+    color: #${ props => props.darkTheme ? 'ccf' : '117' };
+    text-align: right;
+    font-size: 2rem;
+    margin: 2% 5%;
+  }
   p{
     color: #${ props => props.darkTheme ? 'eee' : '222' };
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin: 5%;
     width: 80%;
     transition: opacity .8s;
     opacity: ${ props => props.current ? '1' : '0' };
+    font-family: Roboto, sans-serif;
   }
   ::before {
     background-image: url(${ props => props.bgImage });
   }
+  min-height: 550px;
   @media only screen and (max-width: 1000px){
+    padding: 5%;
     p{
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+      margin: 1rem;
     }
-    min-height: 650px;
+    min-height: 450px;
   }
   @media only screen and (max-width: 500px){
     margin: 0;
@@ -46,6 +55,11 @@ const Container = styled.div<Props>`
     height: 100vh;
     p{
       width: 90%;
+    }
+    h2{
+      text-align: left;
+      margin: 1rem;
+      font-size: 1.5rem;
     }
   }
 `

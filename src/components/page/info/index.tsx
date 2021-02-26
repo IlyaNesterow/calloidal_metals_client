@@ -18,7 +18,7 @@ interface Props {
 }
 
 const InfoComponent: React.FC<Props> = ({ content }) => {
-  const { summary, subSections, pdfFile, title } = content
+  const { summary, subSections, pdfFile, sectionName } = content
   const { theme } = useSelector(getThemeInfo)
 
   const { setCurrentX, transformX, currentX } = useTransforms(true)
@@ -46,7 +46,7 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
           current={ currentForStyles === 0 }
           { ...content }
         >
-          <h2>{ title }</h2>
+          <h2>{ sectionName }</h2>
           <p>{ summary }</p>
         </FirstSlide>
         {subSections && subSections.length > 0 && 

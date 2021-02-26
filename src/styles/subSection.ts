@@ -45,13 +45,10 @@ const Container = styled.div<Props>`
   ::before {
     background-image: url(${ props => props.bgImage });
     transition: filter .9s;
-    border-radius: .2rem;
+    border-radius: .2rem; 
     filter: blur(${ props => props.current ? '1px' : '20px' });
-    /*box-shadow: ${ props => '0 0 50px 2rem ' + (props.current ? 'transparent' : (props.darkTheme ? '#222' : '#fff')) } inset;*/
   }
-  @media only screen and (max-height: 630px){
-    min-height: 650px;
-  }
+  min-height: 550px;
   @media only screen and (max-width: 1000px){
     h2{
       margin: 1rem;
@@ -61,7 +58,8 @@ const Container = styled.div<Props>`
     p{
       margin: .5rem;
     }
-    min-height: 650px;
+    height: 100vh;
+    min-height: 450px;
     margin: 0;
     min-width: 100vw;
     padding: 1rem;

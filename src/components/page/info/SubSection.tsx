@@ -13,6 +13,30 @@ interface Props extends SubSection{
 
 const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionName, ...props }) => {
   const { theme } = useSelector(getThemeInfo) 
+
+  type GetArgsFunc = () => JSX.Element[]
+
+  const getArguments: GetArgsFunc = () => {
+    let lim: number
+    window.innerWidth < 1000 || window.innerHeight < 500
+      ? lim = 2
+      : lim = _arguments.length
+    const output = []
+    for(let i = 0; i < lim; i++){
+      const elem = (
+        <Element
+          current={ current }
+          bold={ _arguments[i].bold }
+          darkTheme={ theme }
+          key={ _arguments[i].statement + i }
+        >
+          { _arguments[i].statement }
+        </Element>
+      )
+      output.push(elem)
+    }
+    return output
+  }
   
   return(
     <Container 
@@ -24,18 +48,7 @@ const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionNam
     >
       <h2>{ title }</h2>
       { text && <p>{ text }</p> }
-      {_arguments.length > 0 &&
-        _arguments.map((arg, i) => (
-          <Element
-            current={ current }
-            bold={ arg.bold }
-            darkTheme={ theme }
-            key={ arg.statement + i }
-          >
-            { arg.statement }
-          </Element>
-        ))
-      }
+      {_arguments.length > 0 && getArguments()}
     </Container>
   )
 }

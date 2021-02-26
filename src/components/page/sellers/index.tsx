@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/sellers'
+import Seller from '../Link'
 
 import { Sellers } from '../../../types'
 
@@ -13,16 +14,23 @@ interface Props {
 const SellersComponent: React.FC<Props> = ({ content }) => {
   const { theme } = useSelector(getThemeInfo)
 
+  const { sectionName, sellers } = content
+
   return(
     <Container
-      bgImage={ content.bgImage }
-      bgImageWidth={ content.bgImageWidth }
-      bgImageHeight={ content.bgImageHeight }
-      className="page-with-bg-img"
+      { ...content }
       darkTheme={ theme }
+      current={ true }
     >
-
-    </Container>
+      <h2>{ sectionName }</h2>
+      { sellers.map((s, i) => (
+          <Seller 
+            link={ s } 
+            num={ i + 1 }
+          />)
+        ) 
+      }
+    </Container> 
   )
 }
 
