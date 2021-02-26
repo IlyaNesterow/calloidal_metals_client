@@ -6,8 +6,6 @@ interface Props{
 }
 
 const Container = styled.div<Props>`
-  min-width: 100vw;
-  min-height: 100vh;
   padding: 1rem;
   transition: opacity .5s;
   opacity: ${ props => props.current ? 1 : 0 };
@@ -20,12 +18,10 @@ const Container = styled.div<Props>`
     color: #${ props => props.darkTheme ? 'eee' : '333' };
   }
   a{
-    display: block;
     text-align: right;
     margin-right: 5%;
     margin-top: 1rem;
     font-size: 1.3rem;
-    color: #${ props => props.darkTheme ? 'fff' : '111' };
   }
   iframe{
     border: none;
@@ -37,12 +33,11 @@ const Container = styled.div<Props>`
     h3{
       margin: 1rem;
       margin-left: 1%;
-      width: 70%;
+      width: 99%;
       font-size: 1.1rem;
       color: #${ props => props.darkTheme ? 'eee' : '333' };
     }
     a{
-      display: block;
       margin-top: .7rem;
       font-size: 1rem;
     }

@@ -11,13 +11,6 @@ const Link = styled.a<Props>`
   text-align: ${ props => (props.sameAlign ? 'left' : props.num % 2 === 0 ? 'left' : 'right') };
   display: block;
   margin: 1rem 0;
-  font-size: 1.3rem;
-  color: #${ props => props.darkTheme ? 'fff' : '111' };
-
-  @media only screen and (max-width: 1000px){
-    font-size: 1.1rem;
-    color: #${ props => props.darkTheme ? 'fff' : '111' };
-  }
 `
 
 export default Link

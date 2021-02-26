@@ -9,9 +9,6 @@ interface Props {
 
 const Container = styled.div<Props>`
   margin: 0;
-  min-width: 100vw;
-  height: 100vh;
-  min-height: 400px;
   transition: background-color 1s;
   background-color: ${ 
     props => props.darkTheme 
@@ -38,19 +35,10 @@ const Container = styled.div<Props>`
     margin: 5% 10%;
     margin-top: ${ props => props.current ? 10 : 5 }%;
     width: 80%;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   ::before {
-    content: "";
-    position: absolute;
-    background-size: cover;
-    left: 0vw;
-    top: 0vh; 
-    width: 100vw; 
-    height: 100vh;
-    min-height: 400px;
     background-image: url(${ props => props.bgImage });
-    z-index: -1;
   }
   @media only screen and (max-width: 1000px){
     h2{

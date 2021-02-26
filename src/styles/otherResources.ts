@@ -7,8 +7,6 @@ interface Props {
 }
 
 const Container = styled.div<Props>`
-  width: 100vw;
-  height: 100vh;
   padding: 2%;
 
   h2{

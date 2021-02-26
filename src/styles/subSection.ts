@@ -21,7 +21,6 @@ const Container = styled.div<Props>`
 
   h2{
     color: ${ props => props.darkTheme ? '#eef' : '#111' };
-    font-family: 'Roboto', sans-serif;
     font-size: 2rem;
     font-weight: 100;
     text-align: center;
@@ -48,7 +47,6 @@ const Container = styled.div<Props>`
     border-radius: .2rem; 
     filter: blur(${ props => props.current ? '1px' : '20px' });
   }
-  min-height: 550px;
   @media only screen and (max-width: 1000px){
     h2{
       margin: 1rem;
@@ -59,7 +57,6 @@ const Container = styled.div<Props>`
       margin: .5rem;
     }
     height: 100vh;
-    min-height: 450px;
     margin: 0;
     min-width: 100vw;
     padding: 1rem;

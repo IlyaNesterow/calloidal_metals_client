@@ -29,25 +29,20 @@ const Container = styled.div<Props>`
     margin: 2% 5%;
   }
   p{
-    color: #${ props => props.darkTheme ? 'eee' : '222' };
-    font-size: 1.3rem;
     margin: 5%;
     width: 80%;
     transition: opacity .8s;
     opacity: ${ props => props.current ? '1' : '0' };
-    font-family: Roboto, sans-serif;
   }
   ::before {
     background-image: url(${ props => props.bgImage });
   }
-  min-height: 550px;
   @media only screen and (max-width: 1000px){
     padding: 5%;
     p{
       font-size: 1.1rem;
       margin: 1rem;
     }
-    min-height: 450px;
   }
   @media only screen and (max-width: 500px){
     margin: 0;

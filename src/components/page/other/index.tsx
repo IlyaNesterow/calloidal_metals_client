@@ -21,6 +21,7 @@ const OtherResources: React.FC<Props> = ({ content, current }) => {
     <Container
       darkTheme={ theme }
       current={ current }
+      id="other"
     >
       <h2>{ sectionName }</h2>
       <div id="links">
@@ -29,6 +30,7 @@ const OtherResources: React.FC<Props> = ({ content, current }) => {
           <Link
             link={ c }
             num={ i + 1 }
+            key={ c.url }
             sameAlign
           />))
         }

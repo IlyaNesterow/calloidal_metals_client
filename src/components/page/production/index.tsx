@@ -19,6 +19,7 @@ const HowProducedComponent: React.FC<Props> = ({ content, current }) => {
       bgImage={ content.bgImage }
       darkTheme={ theme }
       current={ current }
+      id="synthesys"
     >
       <h2>{ content.sectionName }</h2>
       <p>{ content.text }</p>

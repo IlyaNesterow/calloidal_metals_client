@@ -36,14 +36,6 @@ const Container = styled.div<Props>`
     opacity: ${ props => props.current ? 1 : 0 };
   }
   ::before {
-    content: "";
-    position: absolute;
-    background-size: cover;
-    z-index: -1;
-    left: 1px; top: 1px; 
-    width: calc(100% - 2px);  height: calc(100% - 2px);
-    left: 0;
-    top: 0; 
     width: ${ props => props.bgImageWidth }vw; 
     height: ${ props => props.bgImageHeight }vh;
     background-image: url(${ props => props.bgImage });
@@ -58,7 +50,6 @@ const Container = styled.div<Props>`
   @media only screen and (max-width: 500px){
     margin: 0;
     width: 100vw; height: 100vh;
-    min-height: 450px;
     ::before{
       width: 100%; height: 100%;
     }
