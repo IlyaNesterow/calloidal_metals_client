@@ -1,20 +1,12 @@
 import styled from 'styled-components'
+import { PropsWithTransformX } from '../types/styles'
 
 
-interface Props {
-  darkTheme: boolean
-  transformX: number
-}
-
-const Container = styled.div<Props>`
+const Container = styled.div<PropsWithTransformX>`
   overflow: hidden;
-  position: relative;
 
   #ribbon{
     transform: translateX(-${ props => props.transformX }px);
-  }
-  #first-slide, #sub-section, #pdf-file{
-    position: relative;
   }
 `
 

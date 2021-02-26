@@ -36,8 +36,8 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
 
   return(
     <Container
-      darkTheme={ theme }
       transformX={ transformX }
+      id="info"
     > 
       <div id="ribbon">
         <FirstSlide 

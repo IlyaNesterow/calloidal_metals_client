@@ -22,7 +22,6 @@ const Container = styled.div<Props>`
       : (props.current ? 'rgba(250, 250, 250, .7)' : '#fff')
   };
   padding: 2%;
-  position: relative;
 
   h2{
     color: #${ props => props.darkTheme ? 'fff' : '333' };

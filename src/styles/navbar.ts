@@ -1,12 +1,8 @@
 import styled from 'styled-components'
+import { MenuProps } from '../types/styles' 
 
 
-interface NavbarProps {
-  opened: boolean
-  darkTheme: boolean
-}
-
-const Navbar = styled.nav<NavbarProps>`
+const Navbar = styled.nav<MenuProps>`
   width: 100vw;
   transition: background-color .2s;
   background-color: ${ props => props.darkTheme ? '#111' : '#fff' };

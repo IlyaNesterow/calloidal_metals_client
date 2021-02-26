@@ -30,6 +30,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
       bgImage={ content.bgImage }
       transformX={ transformX }
       current={ currentForStyle }
+      id="introduction"
     >
       <div id="ribbon"> 
         <Intro

@@ -1,12 +1,8 @@
 import styled from 'styled-components'
+import { InfoLogProps } from '../types/styles'
 
-interface Props {
-  opacite: boolean
-  darkTheme: boolean
-  visible: boolean
-}
 
-const Paragraph = styled.p<Props>`
+const Paragraph = styled.p<InfoLogProps>`
   position: absolute;
   left: 9%; top: calc(3.4rem + 20%);
   width: 70%;

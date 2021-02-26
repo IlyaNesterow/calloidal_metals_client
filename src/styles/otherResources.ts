@@ -1,12 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithCurrentBool } from '../types/styles'
 
 
-interface Props {
-  darkTheme: boolean
-  current: boolean
-}
-
-const Container = styled.div<Props>`
+const Container = styled.div<PropsWithCurrentBool>`
   padding: 2%;
 
   h2{

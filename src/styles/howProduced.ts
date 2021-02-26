@@ -15,8 +15,6 @@ const Container = styled.div<Props>`
       ? (props.current ? 'rgba(10, 10, 10, .7)' : '#111') 
       : (props.current ? 'rgba(250, 250, 250, .7)' : '#fff') 
   };
- 
-  position: relative;
   padding: 5%;
   
   h2{

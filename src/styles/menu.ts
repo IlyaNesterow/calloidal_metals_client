@@ -1,10 +1,6 @@
 import styled from 'styled-components'
+import { MenuProps } from '../types/styles'
 
-
-interface MenuProps {
-  darkTheme: boolean
-  opened: boolean
-}
 
 const Menu = styled.div<MenuProps>`
   #tab{

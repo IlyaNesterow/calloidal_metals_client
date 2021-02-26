@@ -45,7 +45,6 @@ const Content: React.FC = () => {
   
   return(
     <Container 
-      opened={ menuOpened }
       rollDown={ rollDown }
       darkTheme={ theme }
     >

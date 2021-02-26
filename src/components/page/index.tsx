@@ -19,43 +19,19 @@ import { Page, Content, Introduction, Info, HowProduced, Sellers, OtherSources }
 
 interface Props {
   page: string
-  maxSlides: number
 }
 
-const Main: React.FC<Props> = ({ page, maxSlides }) => {
+const Main: React.FC<Props> = ({ page }) => {
   const { theme } = useSelector(getThemeInfo)  
-
   const [ height, setHeight ] = useState<number>(window.innerHeight)
-  const [ current, setCurrent ] = useState<number>(0)
-  const [ transformY, setTransformY ] = useState<number>(height * current)
+
+  useEffect(() => window.scrollTo(0, 0), [])
 
   useEffect(() => {
     const resetHeight: () => void = () => setHeight(window.innerHeight)
-    if(!isMobile){
-      document.addEventListener('keydown', handlePageChangeByClicking)
-    }
     window.addEventListener('resize', resetHeight)
-    return () => {
-      window.removeEventListener('resize', resetHeight)
-      if(!isMobile){
-        document.removeEventListener('keydown', handlePageChangeByClicking)
-      }
-    }
+    return () => window.removeEventListener('resize', resetHeight)
   })
-
-  useEffect(() => {
-    setTransformY(current * height * -1)
-  }, [ current, height ])
-
-  const handlePageChangeByClicking: any = (e: React.KeyboardEvent) => {
-    if(e.keyCode === 38){
-      if(current > 0)
-        setCurrent(current - 1)
-    } else if (e.keyCode === 40){
-      if(current < maxSlides - 1)
-        setCurrent(current + 1)
-    }
-  } 
 
   type GetPageFunc = (obj: Content) => Page | undefined
 
@@ -80,7 +56,6 @@ const Main: React.FC<Props> = ({ page, maxSlides }) => {
       {content => 
         <Container 
           darkTheme={ theme }
-          transformY={ transformY }
           isMobile={ isMobile }
         >
           <CurrentPage.Provider value={ page }>
@@ -107,4 +82,4 @@ const Main: React.FC<Props> = ({ page, maxSlides }) => {
   )
 }
 
-export default React.memo(Main)
+export default Main

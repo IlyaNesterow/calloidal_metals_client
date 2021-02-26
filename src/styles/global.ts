@@ -1,11 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
+import { PropsWithTheme } from '../types/styles'
 
 
-interface props {
-  darkTheme: boolean
-}
-
-const global = createGlobalStyle<props>`
+const global = createGlobalStyle<PropsWithTheme>`
   ::-webkit-scrollbar { 
     display: none; 
   }

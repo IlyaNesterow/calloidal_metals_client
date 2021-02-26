@@ -1,10 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithTheme } from '../types/styles'
+ 
 
-interface Props {
-  darkTheme: boolean
-}
-
-const Container = styled.div<Props>`
+const Container = styled.div<PropsWithTheme>`
   display: flex;
   justify-content: center;
   align-items: center;

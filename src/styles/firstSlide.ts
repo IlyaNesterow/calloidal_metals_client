@@ -1,12 +1,7 @@
 import styled from 'styled-components'
+import { PropsWithResizableImg, PropsWithCurrentBool } from '../types/styles'
 
-interface Props {
-  darkTheme: boolean
-  current: boolean 
-  bgImage?: string
-  bgImageWidth?: number
-  bgImageHeight?: number
-}
+interface Props extends PropsWithCurrentBool, PropsWithResizableImg {}
 
 const Container = styled.div<Props>`
   margin: 

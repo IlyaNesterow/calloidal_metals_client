@@ -1,9 +1,7 @@
 import styled from 'styled-components'
+import { PropsWithTheme } from '../types/styles'
 
-
-interface Props {
-  darkTheme: boolean
-  transformY: number
+interface Props extends PropsWithTheme{
   isMobile: boolean
 }
 
@@ -38,9 +36,13 @@ const Page = styled.div<Props>`
   #intro,
   #synthesys,
   #sellers, 
+  #pdf-file,
   #ribbon, 
-  #video{
-    min-height: 500px
+  #video,
+  #info,
+  #introduction{
+    min-height: 500px;
+    position: relative;
   }
   #intro,
   #video,

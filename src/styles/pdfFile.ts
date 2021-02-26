@@ -1,11 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithCurrentBool } from '../types/styles'
 
-interface Props{
-  current: boolean
-  darkTheme: boolean
-}
 
-const Container = styled.div<Props>`
+const Container = styled.div<PropsWithCurrentBool>`
   padding: 1rem;
   transition: opacity .5s;
   opacity: ${ props => props.current ? 1 : 0 };

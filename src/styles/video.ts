@@ -1,9 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithCurrentNum } from '../types/styles'
 
-interface Props {
-  current: number
-  num: number
-  darkTheme: boolean
+interface Props extends PropsWithCurrentNum{
+  num: number 
 }
 
 const Container = styled.div<Props>`

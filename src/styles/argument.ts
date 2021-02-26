@@ -1,9 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithCurrentBool } from '../types/styles'
 
-interface Props{
-  darkTheme: boolean
+interface Props extends PropsWithCurrentBool{
   bold: boolean | undefined
-  current: boolean
 }
 
 const Element = styled.li<Props>`

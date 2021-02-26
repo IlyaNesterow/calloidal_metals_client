@@ -30,10 +30,7 @@ const Router: React.FC = () => (
           path={`/${ pg }`} 
           key={ pg }
           component={() => 
-            <Page 
-              page={ pg }
-              maxSlides={ 2 }
-            /> 
+            <Page page={ pg }/> 
           } 
         />)
       }

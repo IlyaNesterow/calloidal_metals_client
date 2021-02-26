@@ -1,9 +1,8 @@
 import styled from 'styled-components'
+import { PropsWithTheme } from '../types/styles'
 
-
-interface props {
+interface props extends PropsWithTheme{
   visible: boolean
-  darkTheme: boolean
 }
 
 const InputContainer = styled.div<props>`

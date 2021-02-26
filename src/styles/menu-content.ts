@@ -1,11 +1,9 @@
 import styled from 'styled-components'
+import { PropsWithTheme } from '../types/styles'
 
-
-interface MenuContentPops {
-  opened: boolean
+interface MenuContentPops extends PropsWithTheme{
   rollDown: boolean
-  darkTheme: boolean
-}
+} 
 
 const Container = styled.div<MenuContentPops>`
   position: relative;

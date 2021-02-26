@@ -1,14 +1,9 @@
 import styled from 'styled-components'
+import { PropsWithBgImg, PropsWithTransformX, PropsWithCurrentNum } from '../types/styles'
 
-interface Props {
-  bgImage?: string
-  darkTheme: boolean
-  transformX: number
-  current: number
-}
+interface Props extends PropsWithBgImg, PropsWithTransformX, PropsWithCurrentNum {}
 
 const Container = styled.div<Props>`
-  position: relative;
   overflow: hidden;
 
   #ribbon{
