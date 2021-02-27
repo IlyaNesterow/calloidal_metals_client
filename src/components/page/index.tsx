@@ -12,6 +12,7 @@ import InfoComponent from './info'
 import HowProducedComponent from './production'
 import SellersComponent from './sellers'
 import OtherResourcesComponent from './other'
+import Nav from './Nav'
 
 import { PageContent } from '../../helpers/contexts'
 import { Page, Content, Introduction, Info, HowProduced, Sellers, OtherSources } from '../../types/index'
@@ -48,7 +49,7 @@ const Main: React.FC<Props> = ({ page }) => {
         return copper
     }
   }
-
+  console.log(height)
   if(!Pages.some(p => p === page)) return null
 
   return(
@@ -75,6 +76,7 @@ const Main: React.FC<Props> = ({ page }) => {
                 current={ true }
                 content={ getPage(content as Content)?.otherSources as OtherSources }/>
             }
+            <Nav/>
           </CurrentPage.Provider>
         </Container>
       }

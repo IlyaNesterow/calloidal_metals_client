@@ -12,8 +12,8 @@ const Container = styled.div<Props>`
   transition: background-color 1s;
   background-color: ${ 
     props => props.darkTheme 
-      ? (props.current ? 'rgba(10, 10, 10, .7)' : '#111') 
-      : (props.current ? 'rgba(250, 250, 250, .7)' : '#fff')
+      ? 'rgba(10, 10, 10, .7)'
+      : 'rgba(250, 250, 250, .7)'
   };
   padding: 2%;
   
@@ -21,7 +21,9 @@ const Container = styled.div<Props>`
     color: #${ props => props.darkTheme ? 'ccf' : '117' };
     text-align: right;
     font-size: 2rem;
-    margin: 2% 5%;
+    transition: all .6s;
+    margin: 2% ${ props => props.current ? 5 : 1 }%;
+    opacity: ${ props => props.current ? '1' : '0' };
   }
   p{
     margin: 5%;
