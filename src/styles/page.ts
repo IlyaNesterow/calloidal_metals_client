@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 import { PropsWithTheme } from '../types/styles'
 
-interface Props extends PropsWithTheme{
-  isMobileSafari: boolean
-}
 
-const Page = styled.div<Props>`
+const Page = styled.div<PropsWithTheme>`
   width: 100vw;
   height: auto;
 
@@ -41,7 +38,7 @@ const Page = styled.div<Props>`
   #video,
   #info,
   #introduction{
-    min-height: ${ props => props.isMobileSafari ? '80%' : '400px' };
+    min-height: 400px;
     position: relative;
   }
   #intro,
@@ -49,7 +46,7 @@ const Page = styled.div<Props>`
   #other,
   #pdf-file,
   #synthesys{
-    height: ${ props => props.isMobileSafari ? '80%' : '100vh' };
+    height: 100vh;
     min-width: 100vw;
   }
   #first-slide::before,  
@@ -92,7 +89,7 @@ const Page = styled.div<Props>`
     #video,
     #info,
     #introduction{
-      min-height: ${ props => props.isMobileSafari ? '80%' : '350px' };
+      min-height: 350px;
     }
     #first-slide,  
     #sub-section,
@@ -101,9 +98,23 @@ const Page = styled.div<Props>`
     #sellers, 
     #ribbon,
     #video{
-      max-height: ${ props => props.isMobileSafari ? '80%' : '350px' };
+      max-height: 350px;
     }
   } 
+  @supports (-webkit-touch-callout: none) {
+    #first-slide,  
+    #sub-section,
+    #intro,
+    #synthesys,
+    #sellers, 
+    #pdf-file,
+    #ribbon, 
+    #video,
+    #info,
+    #introduction{
+      height: 80%;
+    }
+  }
 `
 
 export default Page

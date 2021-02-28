@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { isMobileSafari } from 'react-device-detect' 
 import { useSelector } from 'react-redux'
 
 import { Pages } from '../../types'
@@ -63,7 +62,6 @@ const Main: React.FC<Props> = ({ page }) => {
       {content => 
         <Container 
           darkTheme={ theme }
-          isMobileSafari={ isMobileSafari }
         >
           <CurrentPage.Provider value={ page }>
             <IntroductionComponent 
