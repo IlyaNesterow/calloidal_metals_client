@@ -124,11 +124,11 @@ const Page = styled.div<PropsWithTheme>`
       height: 90%;
     }
     h2{
-      font-weight: 500;
+      font-weight: 400;
       font-family: 'Poppins', sans-serif;
     }
     p{
-      font-weight: 600;
+      font-weight: 400;
       font-family: 'Raleway', sans-serif;
     }
   }
