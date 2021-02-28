@@ -11,6 +11,7 @@ const Container = styled.div<PropsWithCurrentBool>`
     color: #${ props => props.darkTheme ? 'fff' : '111' };
   }
   a{
+    transition: opacity 3s;
     opacity: ${ props => props.current ? 1 : 0 };
   }
   #links{

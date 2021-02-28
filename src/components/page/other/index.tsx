@@ -4,26 +4,28 @@ import { useSelector } from 'react-redux'
 import { getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/otherResources'
 import Link from '../Link'
+import { useInViewWithDelay } from '../../../helpers/hooks'
 
 import { OtherSources } from '../../../types/index'
 
 interface Props {
   content: OtherSources
-  current: boolean
 }
 
-const OtherResources: React.FC<Props> = ({ content, current }) => {
+const OtherResources: React.FC<Props> = ({ content }) => {
   const { theme } = useSelector(getThemeInfo)
+
+  const { ref, inView } = useInViewWithDelay(100)
 
   const { sectionName } = content
 
   return(
     <Container
       darkTheme={ theme }
-      current={ current }
+      current={ inView }
       id="other"
     >
-      <div>
+      <div ref={ ref }>
         <h2>{ sectionName }</h2>
         <div id="links">
           {content.urls.length > 0 &&

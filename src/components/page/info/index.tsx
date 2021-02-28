@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { getThemeInfo } from '../../../redux/selectors'
-import { useTransforms , useDelay } from '../../../helpers/hooks'
+import { useTransforms, useDelay, useInViewWithDelay } from '../../../helpers/hooks'
 import Controls from '../Control'
 import PDFFile from './PdfFile'
 import SubSection from './SubSection'
@@ -23,7 +23,10 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
 
   const { setCurrentX, transformX, currentX } = useTransforms(true)
 
+  const { ref, inView } = useInViewWithDelay(400)
+
   const currentForStyles = useDelay(currentX, 400)
+  
 
   const handleControlClick: HandleControlBarClick = (num) => setCurrentX(num)
 
@@ -43,11 +46,11 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
         <FirstSlide 
           id="first-slide"
           darkTheme={ theme }
-          current={ currentForStyles === 0 }
+          current={ currentForStyles === 0 && inView }
           { ...content }
         >
-          <div>
-            <h2>{ sectionName }</h2>
+          <div ref={ ref }>
+            <h2 >{ sectionName }</h2>
             <p>{ summary }</p>
           </div>
         </FirstSlide>
@@ -62,7 +65,7 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
         }
         {pdfFile && (
           <PDFFile 
-            current={ currentForStyles === getAmount() - 1 }
+            current={ (currentForStyles === getAmount() - 1) }
             { ...pdfFile }
           /> 
         )}

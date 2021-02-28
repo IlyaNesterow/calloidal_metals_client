@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 import { useSelector } from 'react-redux'
 import { getAppInfo } from '../redux/selectors'
@@ -93,4 +94,17 @@ export const useDelay: GenericIdentityFn<any> = (arg, delay) => {
   }, [ arg, delay ])
 
   return newValue
+}
+
+type UseViewWithDelay = (delay: number) => {
+  ref: React.Ref<HTMLDivElement | any>
+  inView: boolean
+}
+
+export const useInViewWithDelay: UseViewWithDelay = (delay) => {
+  const { ref, inView } = useInView()
+
+  const _inView = useDelay(inView, delay)
+
+  return { ref, inView: _inView }
 }

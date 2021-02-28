@@ -15,7 +15,7 @@ const Container = styled.div<Props>`
     ${ props => props.bgImageWidth ? ((100 - props.bgImageWidth) / 2 ) : 0 }vw;
   min-width: ${ props => props.bgImageWidth || 100 }vw;
   height: ${ props => props.bgImageHeight || 100 }vh;
-  transition: background-color .4s;
+  transition: background-color 1s;
   background-color: ${ 
     props => props.darkTheme 
       ? (props.current ? 'rgba(10, 10, 10, .7)' : '#111') 

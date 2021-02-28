@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { PropsWithBgImg, PropsWithTransformX, PropsWithCurrentNum } from '../types/styles'
+import { PropsWithBgImg, PropsWithTransformX, PropsWithCurrentBool } from '../types/styles'
 
-interface Props extends PropsWithBgImg, PropsWithTransformX, PropsWithCurrentNum {}
+interface Props extends PropsWithBgImg, PropsWithTransformX, PropsWithCurrentBool {}
 
 const Container = styled.div<Props>`
   overflow: hidden;
@@ -11,7 +11,7 @@ const Container = styled.div<Props>`
   }
   #wrapper{
     transition: opacity .7s;
-    opacity: ${ props => props.current === 0 ? '1' : '0' };
+    opacity: ${ props => props.current ? '1' : '0' };
   }
   #intro{
     padding: 2rem;
@@ -22,13 +22,13 @@ const Container = styled.div<Props>`
     text-align: right;
     margin-right: 20%;
     transition: margin .7s;
-    margin-top: ${ props => props.current === 0 ? '0' : '5%' };
+    margin-top: ${ props => props.current ? '0' : '5%' };
     color: #88f;
   }
   #intro p{
     max-width: calc(80% - 5rem);
     transition: margin .7s;
-    margin-top: ${ props => props.current === 0 ? '4%' : '20%' };
+    margin-top: ${ props => props.current ? '4%' : '20%' };
     margin-left: 10%;
     margin-bottom: 10%;
   }
@@ -51,7 +51,7 @@ const Container = styled.div<Props>`
   @media only screen and (max-width: 700px){
     #intro h2{
       font-size: 1.8rem;
-      margin-top: ${ props => props.current === 0 ? '5%' : '-10%' };
+      margin-top: ${ props => props.current ? '5%' : '-10%' };
     }
     #intro p{
       max-width: 100%;

@@ -37,6 +37,10 @@ const Container = styled.div<Props>`
     font-size: 1.1rem;
     opacity: ${ props => props.current ? 1 : 0 };
   }
+  li{
+    transition: opacity 1.4s;
+    opacity: ${ props => props.current ? 1 : 0 };
+  }
   ::before {
     background-image: url(${ props => props.bgImage });
     transition: filter .9s;

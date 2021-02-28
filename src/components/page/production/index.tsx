@@ -3,25 +3,27 @@ import { useSelector } from 'react-redux'
 
 import { getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/howProduced'
+import { useInViewWithDelay } from '../../../helpers/hooks'
 
 import { HowProduced } from '../../../types/index'
 
 interface Props {
   content: HowProduced
-  current: boolean
 }
 
-const HowProducedComponent: React.FC<Props> = ({ content, current }) => {
+const HowProducedComponent: React.FC<Props> = ({ content }) => {
   const { theme } = useSelector(getThemeInfo)
+
+  const { ref, inView } = useInViewWithDelay(100)
 
   return(
     <Container
       bgImage={ content.bgImage }
       darkTheme={ theme } 
-      current={ current }
+      current={ inView }
       id="synthesys"
     >
-      <div>
+      <div ref={ ref }>
         <h2>{ content.sectionName }</h2>
         <p>{ content.text }</p>
       </div>

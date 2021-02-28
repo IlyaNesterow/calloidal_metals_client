@@ -4,11 +4,14 @@ import { PropsWithCurrentBool } from '../types/styles'
 
 const Container = styled.div<PropsWithCurrentBool>`
   padding: 1rem;
-  transition: opacity .5s;
+  transition: opacity 1s;
   opacity: ${ props => props.current ? 1 : 0 };
 
+  div{
+    height: 100%; width: 100%;
+  }
   h3{
-    margin: 2rem;
+    margin: 2rem 5%;
     margin-bottom: 1rem;
     width: 70%;
     font-size: 1.5rem;

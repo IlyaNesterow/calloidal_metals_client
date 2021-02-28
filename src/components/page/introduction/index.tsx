@@ -21,7 +21,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
   const { setCurrentX, transformX, currentX } = useTransforms(true)
 
   const currentForStyle = useDelay(currentX, 300)
- 
+  
   const handleControlClick: HandleControlBarClick = (num) => setCurrentX(num)
   
   return(
@@ -29,7 +29,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
       darkTheme={ theme }
       bgImage={ content.bgImage }
       transformX={ transformX }
-      current={ currentForStyle }
+      current={ currentForStyle === 0 }
       id="introduction"
     >
       <div id="ribbon"> 
@@ -42,8 +42,7 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
             <Video 
               key={ v.url } 
               { ...v } 
-              num={ i + 1 }
-              current={ currentForStyle }
+              current={ (currentForStyle === i + 1) }
             />
           ))
         }

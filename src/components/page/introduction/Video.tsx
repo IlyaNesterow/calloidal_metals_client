@@ -6,8 +6,7 @@ import { VideoContent } from '../../../types'
 import Container from '../../../styles/video'
 
 interface Props extends VideoContent{
-  current: number
-  num: number
+  current: boolean
 }
 
 const Video: React.FC<Props> = ({ url, description, ...props }) => {

@@ -70,14 +70,12 @@ const Main: React.FC<Props> = ({ page }) => {
               content={ getPage(content as Content)?.info as Info }/>
             {getPage(content as Content)?.howProduced &&
               <HowProducedComponent
-                current={ true }
                 content={ getPage(content as Content)?.howProduced as HowProduced }/>
             }
             <SellersComponent
               content={ getPage(content as Content)?.sellers as Sellers }/> 
             {getPage(content as Content)?.otherSources &&
               <OtherResourcesComponent
-                current={ true }
                 content={ getPage(content as Content)?.otherSources as OtherSources }/>
             }
             <Nav

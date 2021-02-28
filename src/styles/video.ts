@@ -1,18 +1,15 @@
 import styled from 'styled-components'
-import { PropsWithCurrentNum } from '../types/styles'
+import { PropsWithCurrentBool } from '../types/styles'
 
-interface Props extends PropsWithCurrentNum{
-  num: number 
-}
 
-const Container = styled.div<Props>`
+const Container = styled.div<PropsWithCurrentBool>`
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   transition: opacity .7s;
-  opacity: ${ props => props.current === props.num ? '1' : '0' };
+  opacity: ${ props => props.current ? '1' : '0' };
   height: 100vh;
   min-height: 550px;
   min-width: 100vw;
@@ -21,7 +18,7 @@ const Container = styled.div<Props>`
     text-align: center;
     font-size: 1.8rem;
     transition: margin-top .7s;
-    margin-top: ${ props => props.current === props.num ? '0' : '5%' };
+    margin-top: ${ props => props.current ? '0' : '5%' };
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     color: ${ props => props.darkTheme ? '#eef' : '#223' };
