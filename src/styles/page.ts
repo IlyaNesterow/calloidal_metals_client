@@ -123,6 +123,12 @@ const Page = styled.div<PropsWithTheme>`
     #introduction{
       height: 90%;
     }
+    h2{
+      color: #3355ff;
+    }
+    p{
+      color: #3355ff;
+    }
   }
 `
 
