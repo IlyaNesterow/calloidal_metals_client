@@ -61,7 +61,7 @@ const Container = styled.div<Props>`
   }
   @supports (-webkit-touch-callout: none) {
     iframe{
-      height: 50vh;
+      height: 60vh;
     }
   }
 `

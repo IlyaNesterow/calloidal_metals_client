@@ -35,6 +35,11 @@ const InputContainer = styled.div<props>`
     transition: opacity .3s;
     opacity: ${ props => props.visible ? '1' : '0' };
   }
+  @supports (-webkit-touch-callout: none){
+    #eye{
+      top: calc(50% - .1.3rem); right: 1rem;
+    }
+  }
 `
 
 export default InputContainer
