@@ -37,7 +37,7 @@ const Container = styled.div<Props>`
   }
   @media only screen and (max-width: 1000px){
     #intro h2{
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       text-align: center;
       margin-right: auto;
       margin-top: 1.9rem;
