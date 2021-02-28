@@ -50,7 +50,7 @@ const Container = styled.div<Props>`
   }
   @media only screen and (max-width: 700px){
     #intro h2{
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-top: ${ props => props.current === 0 ? '5%' : '-10%' };
     }
     #intro p{

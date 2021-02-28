@@ -121,7 +121,7 @@ const Page = styled.div<PropsWithTheme>`
     #video,
     #info,
     #introduction{
-      height: 90%;
+      height: 90vh;
     }
     h2{
       font-weight: 400;
