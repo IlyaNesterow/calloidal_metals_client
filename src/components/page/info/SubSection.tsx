@@ -46,9 +46,11 @@ const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionNam
       id="sub-section"
       borderBottomForH2={ text === undefined }
     >
-      <h2>{ title }</h2>
-      { text && <p>{ text }</p> }
-      {_arguments.length > 0 && getArguments()}
+      <div>
+        <h2>{ title }</h2>
+        { text && <p>{ text }</p> }
+        {_arguments.length > 0 && getArguments()}
+      </div>
     </Container>
   )
 }

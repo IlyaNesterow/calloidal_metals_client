@@ -46,8 +46,10 @@ const InfoComponent: React.FC<Props> = ({ content }) => {
           current={ currentForStyles === 0 }
           { ...content }
         >
-          <h2>{ sectionName }</h2>
-          <p>{ summary }</p>
+          <div>
+            <h2>{ sectionName }</h2>
+            <p>{ summary }</p>
+          </div>
         </FirstSlide>
         {subSections && subSections.length > 0 && 
           subSections.map((s, i) => (

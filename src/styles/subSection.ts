@@ -45,12 +45,8 @@ const Container = styled.div<Props>`
   }
   @media only screen and (max-width: 1000px){
     h2{
-      margin: 1rem;
       padding-bottom: 1rem;
       font-size: 1.6rem;
-    }
-    p{
-      margin: .5rem;
     }
     height: 100vh;
     margin: 0;

@@ -23,15 +23,17 @@ const SellersComponent: React.FC<Props> = ({ content }) => {
       current={ true }
       id="sellers"
     >
-      <h2>{ sectionName }</h2>
-      { sellers.map((s, i) => (
-          <Seller 
-            link={ s } 
-            num={ i + 1 }
-            key={ s.url }
-          />)
-        ) 
-      }
+      <div>
+        <h2>{ sectionName }</h2>
+        { sellers.map((s, i) => (
+            <Seller 
+              link={ s } 
+              num={ i + 1 }
+              key={ s.url }
+            />)
+          ) 
+        }
+      </div>
     </Container> 
   )
 }

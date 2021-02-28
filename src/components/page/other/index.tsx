@@ -23,17 +23,19 @@ const OtherResources: React.FC<Props> = ({ content, current }) => {
       current={ current }
       id="other"
     >
-      <h2>{ sectionName }</h2>
-      <div id="links">
-        {content.urls.length > 0 &&
-          content.urls.map((c, i) => (
-          <Link
-            link={ c }
-            num={ i + 1 }
-            key={ c.url }
-            sameAlign
-          />))
-        }
+      <div>
+        <h2>{ sectionName }</h2>
+        <div id="links">
+          {content.urls.length > 0 &&
+            content.urls.map((c, i) => (
+            <Link
+              link={ c }
+              num={ i + 1 }
+              key={ c.url }
+              sameAlign
+            />))
+          }
+        </div>
       </div>
     </Container>
   )

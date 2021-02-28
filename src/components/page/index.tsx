@@ -30,7 +30,7 @@ const Main: React.FC<Props> = ({ page }) => {
     const handleScroll = () => {
       window.innerWidth > 650
         ? setCurrent(Math.floor(window.pageYOffset / window.innerHeight))
-        : setCurrent(Math.floor(window.pageYOffset / 350))
+        : setCurrent(Math.floor(window.pageYOffset / 550))
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)

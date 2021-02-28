@@ -17,12 +17,14 @@ const HowProducedComponent: React.FC<Props> = ({ content, current }) => {
   return(
     <Container
       bgImage={ content.bgImage }
-      darkTheme={ theme }
+      darkTheme={ theme } 
       current={ current }
       id="synthesys"
     >
-      <h2>{ content.sectionName }</h2>
-      <p>{ content.text }</p>
+      <div>
+        <h2>{ content.sectionName }</h2>
+        <p>{ content.text }</p>
+      </div>
     </Container>
   )
 }

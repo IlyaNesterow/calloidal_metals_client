@@ -22,12 +22,11 @@ const Container = styled.div<Props>`
     text-align: right;
     font-size: 2rem;
     transition: all .6s;
-    margin: 2% ${ props => props.current ? 5 : 1 }%;
+    margin: 1% ${ props => props.current ? 5 : 1 }%;
     opacity: ${ props => props.current ? '1' : '0' };
   }
-  p{
-    margin: 5%;
-    width: 80%;
+  p{ 
+    margin: 1%;
     transition: opacity .8s;
     opacity: ${ props => props.current ? '1' : '0' };
   }
@@ -39,19 +38,6 @@ const Container = styled.div<Props>`
     p{
       font-size: 1.1rem;
       margin: 1rem;
-    }
-  }
-  @media only screen and (max-width: 500px){
-    margin: 0;
-    min-width: 100vw;
-    height: 100vh;
-    p{
-      width: 90%;
-    }
-    h2{
-      text-align: left;
-      margin: 1rem;
-      font-size: 1.5rem;
     }
   }
 `

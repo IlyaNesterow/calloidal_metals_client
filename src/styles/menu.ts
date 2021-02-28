@@ -19,11 +19,9 @@ const Menu = styled.div<MenuProps>`
     height: 100vh;
     width: 100vw;
     position: fixed;
-    transition: opacity .5s;
     top: 0;
+    backdrop-filter: blur(${ props => props.opened ? '25px' : '10px' });
     left: ${ props => props.opened ? '0' : '-100vw' };
-    opacity: ${ props => props.opened ? '.8' : '0' };
-    background-color: ${ props => props.darkTheme ? 'rgb(255, 255, 255)' : 'rgb(16, 16, 16)' };
     z-index: 2;
   }
 `

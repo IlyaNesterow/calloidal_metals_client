@@ -51,12 +51,6 @@ const Container = styled.div<Props>`
       font-size: 1rem;
     }
   } 
-  @media only screen and (max-width: 750px){
-    h2{
-      margin: 2% 1rem;
-      font-size: 1.4rem;
-    }
-  }
 `
 
 export default Container

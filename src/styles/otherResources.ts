@@ -3,10 +3,9 @@ import { PropsWithCurrentBool } from '../types/styles'
 
 
 const Container = styled.div<PropsWithCurrentBool>`
-  padding: 2%;
+  padding: 10%;
 
   h2{
-    margin-top: 10%;
     padding-bottom: .5rem;
     border-bottom: solid 1px #88888888;
     color: #${ props => props.darkTheme ? 'fff' : '111' };
@@ -17,11 +16,8 @@ const Container = styled.div<PropsWithCurrentBool>`
   #links{
     margin-top: 2rem;
   }
-  @media only screen and (max-width: 1000px){
-    padding: 3%;
-    h2{
-      margin-top: 9%;
-    }
+  @media only screen and (max-width: 600px){
+    padding: 5%;
   }
 `
 

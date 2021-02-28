@@ -52,9 +52,6 @@ const Container = styled.div<Props>`
     ::before{
       width: 100%; height: 100%;
     }
-    h2{
-      margin-top: 20%;
-    }
   }
 `
 

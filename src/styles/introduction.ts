@@ -22,14 +22,15 @@ const Container = styled.div<Props>`
     text-align: right;
     margin-right: 20%;
     transition: margin .7s;
-    margin-top: ${ props => props.current === 0 ? '13%' : '5%' };
+    margin-top: ${ props => props.current === 0 ? '0' : '5%' };
     color: #88f;
   }
   #intro p{
     max-width: calc(80% - 5rem);
     transition: margin .7s;
-    margin-top: ${ props => props.current === 0 ? '8%' : '20%' };
+    margin-top: ${ props => props.current === 0 ? '4%' : '20%' };
     margin-left: 10%;
+    margin-bottom: 10%;
   }
   #intro::before {
     background-image: url(${ props => props.bgImage });
@@ -43,19 +44,17 @@ const Container = styled.div<Props>`
     }
     #intro p{
       max-width: 100%;
-      margin-top: 10%;
-      line-height: 2rem;
+      margin-top: 6%;
       margin-left: 0;
     }
   }
   @media only screen and (max-width: 700px){
     #intro h2{
       font-size: 2.2rem;
-      margin-top: ${ props => props.current === 0 ? '13%' : '5%' };
+      margin-top: ${ props => props.current === 0 ? '5%' : '-10%' };
     }
     #intro p{
       max-width: 100%;
-      margin-top: 10%;
     }
   }
 `

@@ -51,7 +51,6 @@ const Container = styled.div<Props>`
       box-shadow: none;
       border-radius: .5rem;
     }
-    min-height: 450px;
   }
   @media only screen and (max-width: 700px){
     padding-top: 9%;
