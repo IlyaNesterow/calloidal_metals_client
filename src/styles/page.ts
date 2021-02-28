@@ -124,10 +124,12 @@ const Page = styled.div<PropsWithTheme>`
       height: 90%;
     }
     h2{
-      color: #3355ff;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
     }
     p{
-      color: #3355ff;
+      font-weight: 600;
+      font-family: 'Raleway', sans-serif;
     }
   }
 `
