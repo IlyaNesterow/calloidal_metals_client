@@ -49,6 +49,12 @@ const Container = styled.div<Props>`
     font-size: 1rem;
     color: #888;
   }
+  @media only screen and (max-width: 1000px){
+    #inner-container{
+      width: 80%;
+      height: 60%;
+    }
+  }
 `
 
 export default Container
