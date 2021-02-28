@@ -40,6 +40,9 @@ const Container = styled.div<PropsWithTheme>`
       opacity: 0;
     }
   }
+  @media only screen and (max-width: 600px){
+    display: none;
+  }
 `
 
 export default Container

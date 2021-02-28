@@ -41,7 +41,7 @@ const Page = styled.div<Props>`
   #video,
   #info,
   #introduction{
-    min-height: 400px;
+    min-height: ${ props => props.isMobileSafari ? '80%' : '400px' };
     position: relative;
   }
   #intro,
@@ -49,7 +49,7 @@ const Page = styled.div<Props>`
   #other,
   #pdf-file,
   #synthesys{
-    height: 100vh;
+    height: ${ props => props.isMobileSafari ? '80%' : '100vh' };
     min-width: 100vw;
   }
   #first-slide::before,  
