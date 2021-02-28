@@ -162,8 +162,8 @@ const Container = styled.div<PropsWithTheme>`
   }
   @supports (-webkit-touch-callout: none){
     #content input{
-      padding: .1rem 1.3rem;
-      font-size: 1.3rem;
+      padding: .7rem;
+      font-size: 1.1rem;
     }
   }
 `
