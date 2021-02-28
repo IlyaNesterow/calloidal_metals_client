@@ -37,7 +37,7 @@ const InputContainer = styled.div<props>`
   }
   @supports (-webkit-touch-callout: none){
     #eye{
-      top: calc(50% - .85rem); right: 2.5rem;
+      top: calc(50% - .8rem); right: 2.5rem;
     }
   }
 `
