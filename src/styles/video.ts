@@ -59,6 +59,11 @@ const Container = styled.div<Props>`
       margin-top: 6%;
     }
   }
+  @supports (-webkit-touch-callout: none) {
+    iframe{
+      height: 77% !important;
+    }
+  }
 `
 
 export default Container

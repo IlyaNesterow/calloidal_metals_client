@@ -121,7 +121,7 @@ const Page = styled.div<PropsWithTheme>`
     #video,
     #info,
     #introduction{
-      height: 80%;
+      height: 90%;
     }
   }
 `
