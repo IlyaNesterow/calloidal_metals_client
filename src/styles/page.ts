@@ -127,6 +127,10 @@ const Page = styled.div<PropsWithTheme>`
       font-weight: 400;
       font-family: 'Poppins', sans-serif;
     }
+    h3, a, li{
+      font-weight: 300;
+      font-family: 'Nunito', sans-serif;
+    }
     p{
       font-weight: 400;
       font-family: 'Raleway', sans-serif;
