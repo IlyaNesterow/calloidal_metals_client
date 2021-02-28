@@ -44,7 +44,7 @@ const Container = styled.div<Props>`
     }
     iframe{
       width: 90%;
-      height: 77%;
+      height: 77vh;
       margin-left: 5%;
       margin-top: 3%;
       border: none;
@@ -54,14 +54,14 @@ const Container = styled.div<Props>`
   }
   @media only screen and (max-width: 700px){
     padding-top: 9%;
-     
+    
     iframe{
       margin-top: 6%;
     }
   }
   @supports (-webkit-touch-callout: none) {
     iframe{
-      height: 77% !important;
+      height: 77vh !important;
     }
   }
 `
