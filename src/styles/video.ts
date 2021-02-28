@@ -44,7 +44,7 @@ const Container = styled.div<Props>`
     }
     iframe{
       width: 90%;
-      height: 77vh;
+      height: calc(100% - 6rem);
       margin-left: 5%;
       margin-top: 3%;
       border: none;
@@ -57,11 +57,6 @@ const Container = styled.div<Props>`
     
     iframe{
       margin-top: 6%;
-    }
-  }
-  @supports (-webkit-touch-callout: none) {
-    iframe{
-      height: 77vh !important;
     }
   }
 `
