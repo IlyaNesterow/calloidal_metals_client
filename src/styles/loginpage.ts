@@ -167,6 +167,9 @@ const Container = styled.div<PropsWithTheme>`
       font-size: 1rem;
       font-weight: 500;
     }
+    #button{
+      height: 3rem;
+    }
   }
 `
 
