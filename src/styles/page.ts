@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { PropsWithTheme } from '../types/styles'
 
 interface Props extends PropsWithTheme{
-  isMobile: boolean
+  isMobileSafari: boolean
 }
 
 const Page = styled.div<Props>`
@@ -41,7 +41,7 @@ const Page = styled.div<Props>`
   #video,
   #info,
   #introduction{
-    min-height: 500px;
+    min-height: 400px;
     position: relative;
   }
   #intro,
@@ -78,7 +78,30 @@ const Page = styled.div<Props>`
     #sellers, 
     #ribbon,
     #video{
-      min-height: 450px;
+      min-height: 350px;
+    }
+  } 
+  @media only screen and (max-width: 500px){
+    #first-slide,  
+    #sub-section,
+    #intro,
+    #synthesys,
+    #sellers, 
+    #pdf-file,
+    #ribbon, 
+    #video,
+    #info,
+    #introduction{
+      min-height: ${ props => props.isMobileSafari ? '80%' : '350px' };
+    }
+    #first-slide,  
+    #sub-section,
+    #intro,
+    #synthesys,
+    #sellers, 
+    #ribbon,
+    #video{
+      max-height: ${ props => props.isMobileSafari ? '80%' : '350px' };
     }
   } 
 `

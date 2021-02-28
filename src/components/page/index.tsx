@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { isMobile } from 'react-device-detect' 
+import { isMobileSafari } from 'react-device-detect' 
 import { useSelector } from 'react-redux'
 
 import { Pages } from '../../types'
@@ -12,11 +12,10 @@ import InfoComponent from './info'
 import HowProducedComponent from './production'
 import SellersComponent from './sellers'
 import OtherResourcesComponent from './other'
-import Nav from './Nav'
+import Nav from './Nav' 
 
 import { PageContent } from '../../helpers/contexts'
 import { Page, Content, Introduction, Info, HowProduced, Sellers, OtherSources } from '../../types/index'
-
 
 interface Props {
   page: string
@@ -24,17 +23,22 @@ interface Props {
 
 const Main: React.FC<Props> = ({ page }) => {
   const { theme } = useSelector(getThemeInfo)  
-  const [ height, setHeight ] = useState<number>(window.innerHeight)
-
+  const [ current, setCurrent ] = useState<number>(0)
+ 
   useEffect(() => window.scrollTo(0, 0), [])
 
   useEffect(() => {
-    const resetHeight: () => void = () => setHeight(window.innerHeight)
-    window.addEventListener('resize', resetHeight)
-    return () => window.removeEventListener('resize', resetHeight)
+    const handleScroll = () => {
+      window.innerWidth > 650
+        ? setCurrent(Math.floor(window.pageYOffset / window.innerHeight))
+        : setCurrent(Math.floor(window.pageYOffset / 350))
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   })
 
   type GetPageFunc = (obj: Content) => Page | undefined
+  type GetSectionNames = (obj: Page) => string[]
 
   const getPage: GetPageFunc = (obj) => {
     const { silver, gold, platinum, copper } = obj.pages
@@ -49,7 +53,9 @@ const Main: React.FC<Props> = ({ page }) => {
         return copper
     }
   }
-  console.log(height)
+
+  const getSectionNames: GetSectionNames = (obj) => Object.values(obj).map(p => p.sectionName)
+  
   if(!Pages.some(p => p === page)) return null
 
   return(
@@ -57,7 +63,7 @@ const Main: React.FC<Props> = ({ page }) => {
       {content => 
         <Container 
           darkTheme={ theme }
-          isMobile={ isMobile }
+          isMobileSafari={ isMobileSafari }
         >
           <CurrentPage.Provider value={ page }>
             <IntroductionComponent 
@@ -76,7 +82,11 @@ const Main: React.FC<Props> = ({ page }) => {
                 current={ true }
                 content={ getPage(content as Content)?.otherSources as OtherSources }/>
             }
-            <Nav/>
+            <Nav
+              current={ current }
+              setCurrent={ setCurrent }
+              links={ getSectionNames(getPage(content as Content) as Page) }
+            />
           </CurrentPage.Provider>
         </Container>
       }
