@@ -38,7 +38,7 @@ const Page = styled.div<PropsWithTheme>`
   #video,
   #info,
   #introduction{
-    min-height: 400px;
+    min-height: 500px;
     position: relative;
   }
   #intro,
@@ -75,30 +75,7 @@ const Page = styled.div<PropsWithTheme>`
     #sellers, 
     #ribbon,
     #video{
-      min-height: 350px;
-    }
-  } 
-  @media only screen and (max-width: 500px){
-    #first-slide,  
-    #sub-section,
-    #intro,
-    #synthesys,
-    #sellers, 
-    #pdf-file,
-    #ribbon, 
-    #video,
-    #info,
-    #introduction{
-      min-height: 350px;
-    }
-    #first-slide,  
-    #sub-section,
-    #intro,
-    #synthesys,
-    #sellers, 
-    #ribbon,
-    #video{
-      max-height: 350px;
+      min-height: 450px;
     }
   } 
   @supports (-webkit-touch-callout: none) {
