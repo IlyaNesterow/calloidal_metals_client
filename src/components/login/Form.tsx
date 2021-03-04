@@ -6,6 +6,7 @@ import { isMobile } from 'react-device-detect'
 import { InputOnChange, SpanMouseEvent, DivOnClick } from '../../types/functions'
 import { setError, login, setLoading } from '../../redux/actions'
 import { login as loginInLS } from '../../helpers/localStorage'
+import { server } from '../../utils/variables'
 
 import PwField from '../global/PasswordField'
 import Info from './Info'
@@ -30,15 +31,31 @@ const Form: React.FC<{ label: string }> = ({ label }) => {
 
   const handleSubmit: DivOnClick = (e) => {
     e.preventDefault()
-    if(username.length < 5) return dispatch(setError('Username is to short'))
+    if(username.length < 4) return dispatch(setError('Username is to short'))
     if(password.length < 5) return dispatch(setError('Password does not seem to match'))
     dispatch(setLoading(true))
-    setTimeout(() => {
-      dispatch(login({ username: 'Vasya', session: '43432' }))
-      loginInLS(username, 'sdfsdf')
-      history.push('/silver')
-      dispatch(setLoading(false))
-    }, 5000)
+
+    interface ResponseJSON {
+      error?: string
+      token?: string
+    } 
+
+    fetch(`${ server }login`, {
+      method: 'PUT',
+      body: JSON.stringify({ username, password }),
+      headers: {'content-type': 'application/json'}
+    })
+      .then(res => res.json()) 
+      .then((res: ResponseJSON) => {
+        if(res.error) return dispatch(setError(res.error))
+        if(!res.token) throw Error('Token not found')
+
+        dispatch(login({ username, session: res.token as string }))
+        loginInLS(username, res.token as string)
+        history.push('/')
+      })
+      .catch((err: Error) => dispatch(setError(err.message))) 
+      .finally(() => dispatch(setLoading(false)))
   }
 
   const handleClick: SpanMouseEvent = () => {
