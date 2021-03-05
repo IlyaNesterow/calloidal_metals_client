@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { getThemeInfo } from '../redux/selectors'
-import { setDefaultTheme, setRememberMe, logout, setError } from '../redux/actions'
+import { setDefaultTheme, setError } from '../redux/actions'
 import Global from '../styles/global'
 import { setDefaults } from '../helpers/localStorage'
 import Router from '../router'
@@ -48,8 +48,6 @@ const App: React.FC = () => {
   const _setDefaults = (): void => {
     setDefaults()
     dispatch(setDefaultTheme(false))
-    dispatch(setRememberMe(false))
-    dispatch(logout())
   }
 
   return (

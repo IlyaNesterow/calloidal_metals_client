@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setMenuOpened } from '../../../redux/actions'
 import { getAppInfo } from '../../../redux/selectors'
 
- 
+
 const MenuToggler: React.FC = () => {
   const { menuOpened } = useSelector(getAppInfo)
   const dispatch = useDispatch()
