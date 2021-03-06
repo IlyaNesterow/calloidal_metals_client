@@ -22,4 +22,4 @@ const MenuToggler: React.FC = () => {
   )
 }
 
-export default MenuToggler
+export default React.memo(MenuToggler)

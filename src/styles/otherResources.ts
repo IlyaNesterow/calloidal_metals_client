@@ -8,7 +8,6 @@ const Container = styled.div<PropsWithCurrentBool>`
   h2{
     padding-bottom: .5rem;
     border-bottom: solid 1px #88888888;
-    color: #${ props => props.darkTheme ? 'fff' : '111' };
   }
   a{
     transition: opacity 3s;

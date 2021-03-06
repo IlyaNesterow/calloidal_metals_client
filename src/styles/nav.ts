@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { PropsWithTheme } from '../types/styles'
 
-const Container = styled.div<PropsWithTheme>`
+
+const Container = styled.div`
   position: fixed;
   height: 100vh;
   top: 0;
@@ -21,19 +21,12 @@ const Container = styled.div<PropsWithTheme>`
     font-size: .8rem;
     font-weight: 500;
     transition: opacity .2s;
-    color: #${ props => props.darkTheme ? '5599ff' : '3355ff' };
   }
   .invisible p{
     opacity: 0;
   }
   .current p{
     opacity: 1;
-  }
-  .invisible{
-    border-left-color: #${ props => props.darkTheme ? 'fff' : '333' };
-  }
-  .current{
-    border-left-color: #${ props => props.darkTheme ? '5599ff' : '3355ff' };
   }
   @media only screen and (max-width: 1000px){
     #section-link p{

@@ -15,7 +15,6 @@ const Container = styled.div<PropsWithCurrentBool>`
     margin-bottom: 1rem;
     width: 70%;
     font-size: 1.5rem;
-    color: #${ props => props.darkTheme ? 'eee' : '333' };
   }
   a{
     text-align: right;
@@ -35,7 +34,6 @@ const Container = styled.div<PropsWithCurrentBool>`
       margin-left: 1%;
       width: 99%;
       font-size: 1.1rem;
-      color: #${ props => props.darkTheme ? 'eee' : '333' };
     }
     a{
       margin-top: .7rem;

@@ -1,11 +1,9 @@
 import { combineReducers, createStore } from 'redux'
 import { appReducer } from './reducers/app'
-import { themeReducer } from './reducers/theme'
 
 
 const rootReducer = combineReducers({
-  app: appReducer,
-  theme: themeReducer
+  app: appReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

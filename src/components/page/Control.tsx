@@ -1,19 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../redux/selectors'
 import Container from '../../styles/controls'
 
 
 interface Props {
-  onClick: (clickOnVideo: number) => void
+  onClick: (clickOnItem: number) => void
   current: number
   amount: number
 }
 
 const Control: React.FC<Props> = ({ onClick, current, amount }) => {
-  const { theme } = useSelector(getThemeInfo)
-  
   type CreateBtns = () => JSX.Element[]  
 
   const createBars: CreateBtns = () => {
@@ -39,13 +35,10 @@ const Control: React.FC<Props> = ({ onClick, current, amount }) => {
   } 
   
   return(
-    <Container 
-      darkTheme={ theme } 
-      amount={ 2 }
-    >
+    <Container amount={ 2 }>
       { createBars() }
     </Container>
   )
 }
 
-export default Control
+export default React.memo(Control)

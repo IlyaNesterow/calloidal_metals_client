@@ -8,7 +8,7 @@ export interface PropsWithTransformX{
   transformX: number
 }
 
-export interface PropsWithBgImg extends PropsWithTheme{
+export interface PropsWithBgImg{
   bgImage?: string
 }
 
@@ -26,7 +26,7 @@ export interface MenuProps extends PropsWithTheme{
   opened: boolean
 }
 
-export interface PropsWithCurrentBool extends PropsWithTheme{
+export interface PropsWithCurrentBool {
   current: boolean
 }
 

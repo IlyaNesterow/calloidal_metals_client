@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { PropsWithTheme } from '../types/styles'
 
-interface Props extends PropsWithTheme{
+interface Props{
   num: number
   sameAlign: boolean
 }

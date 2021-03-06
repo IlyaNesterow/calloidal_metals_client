@@ -2,9 +2,6 @@ export interface AppState {
   loading: boolean
   menuOpened: boolean
   error?: string
-}
-
-export interface ThemeState {
   theme: boolean
 }
 
@@ -41,5 +38,4 @@ export interface OpenCloseMenu {
   opened: boolean
 }
 
-export type AppActionType =  SetLoading | SetError | OpenCloseMenu
-export type ThemeActionType = ToggleTheme | SetDefaultTheme
+export type AppActionType =  SetLoading | SetError | OpenCloseMenu | ToggleTheme | SetDefaultTheme

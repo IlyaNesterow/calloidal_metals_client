@@ -1,8 +1,6 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import Container from '../../../styles/pdfFile'
-import { getThemeInfo } from '../../../redux/selectors'
 import PDFPreview from './PDFPreview'
 import { useInViewWithDelay } from '../../../helpers/hooks'
 
@@ -13,14 +11,11 @@ interface Props extends PdfFile{
 }
 
 const PDFFile: React.FC<Props> = ({ url, description, current }) => {
-  const { theme } = useSelector(getThemeInfo)
-  
   const { ref, inView } = useInViewWithDelay(100)
 
   return(
     <Container 
       current={ current && inView }
-      darkTheme={ theme }
       id="pdf-file"
     >
       <div ref={ ref }>

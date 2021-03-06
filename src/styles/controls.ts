@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { PropsWithTheme } from '../types/styles'
 
-interface Props extends PropsWithTheme{
+interface Props{
   amount: number
 }
 
@@ -23,7 +22,6 @@ const Container = styled.div<Props>`
   .bar{
     width: 90%; height: .1rem;
     border-radius: .1rem;
-    background-color: ${ props => props.darkTheme ? '#fff' : '#222' };
     transition: background-color .5s;
     margin-top: .5rem;
     display: block;

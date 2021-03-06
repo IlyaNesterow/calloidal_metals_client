@@ -32,6 +32,12 @@ const Container = styled.div<Props>`
     top: .7rem; right: 0;
     padding: 1rem;
   }
+
+  h5{
+    font-family: 'Noto Sans TC', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #888;
+  }
   #close-error-log-cross{
     width: 25px; height: 1px;
     background-color: #${ props => props.darkTheme ? 'eee' : '333' };
@@ -43,11 +49,6 @@ const Container = styled.div<Props>`
     width: 25px; height: 1px;
     background-color: #${ props => props.darkTheme ? 'eee' : '333' };
     transform: rotateZ(-90deg);
-  }
-  h5{
-    font-family: 'Noto Sans TC', Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    color: #888;
   }
   @media only screen and (max-width: 1000px){
     #inner-container{

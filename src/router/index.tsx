@@ -7,10 +7,13 @@ import ErrorMessage from '../components/global/ErrorMessage'
 
 import Page from '../components/page'
 
-import { Pages } from '../types/index'
+import { Pages, Content } from '../types/index'
 
+interface Props {
+  content: Content
+}
 
-const Router: React.FC = () => (
+const Router: React.FC<Props> = ({ content }) => (
   <BrowserRouter>
     <Navbar/>
     <Menu/>
@@ -27,7 +30,10 @@ const Router: React.FC = () => (
           path={`/${ pg }`} 
           key={ pg }
           component={() => 
-            <Page page={ pg }/> 
+            <Page 
+              page={ pg }
+              content={ content }
+            /> 
           } 
         />)
       }
@@ -35,4 +41,4 @@ const Router: React.FC = () => (
   </BrowserRouter>
 )
 
-export default Router
+export default React.memo(Router)

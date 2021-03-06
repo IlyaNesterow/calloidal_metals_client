@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../../redux/selectors'
+import { getAppInfo } from '../../../redux/selectors'
 import Container from '../../../styles/sellers'
 import Seller from '../Link'
 import { useInViewWithDelay } from '../../../helpers/hooks'
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const SellersComponent: React.FC<Props> = ({ content }) => {
-  const { theme } = useSelector(getThemeInfo)
+  const { theme } = useSelector(getAppInfo)
 
   const { ref, inView } = useInViewWithDelay(100)
 

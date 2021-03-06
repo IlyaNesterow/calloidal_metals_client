@@ -6,7 +6,6 @@ interface Props extends PropsWithCurrentBool{
 }
 
 const Element = styled.li<Props>`
-  color: #${ props => props.darkTheme ? 'ddf' : '113' };
   font-weight: ${ props => props.bold ? '700' : '100' };
   margin: 1rem;
   list-style: none;

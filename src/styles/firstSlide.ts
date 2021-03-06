@@ -10,15 +10,9 @@ const Container = styled.div<Props>`
   min-width: ${ props => props.bgImageWidth || 100 }vw;
   height: ${ props => props.bgImageHeight || 100 }vh;
   transition: background-color 1s;
-  background-color: ${ 
-    props => props.darkTheme 
-      ? 'rgba(10, 10, 10, .7)'
-      : 'rgba(250, 250, 250, .7)'
-  };
   padding: 2%;
   
   h2{
-    color: #${ props => props.darkTheme ? 'ccf' : '117' };
     text-align: right;
     font-size: 2rem;
     transition: all .6s;

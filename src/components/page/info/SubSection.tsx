@@ -1,9 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import Container from '../../../styles/subSection'
 import Element from '../../../styles/argument'
-import { getThemeInfo } from '../../../redux/selectors'
 
 import { SubSection } from '../../../types/index'
 
@@ -12,8 +10,6 @@ interface Props extends SubSection{
 }
 
 const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionName, ...props }) => {
-  const { theme } = useSelector(getThemeInfo) 
-
   type GetArgsFunc = () => JSX.Element[]
 
   const getArguments: GetArgsFunc = () => {
@@ -27,7 +23,7 @@ const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionNam
         <Element
           current={ current }
           bold={ _arguments[i].bold }
-          darkTheme={ theme }
+          id="sub-section-element"
           key={ _arguments[i].statement + i }
         >
           { _arguments[i].statement }
@@ -41,7 +37,6 @@ const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionNam
   return(
     <Container 
       { ...props }
-      darkTheme={ theme } 
       current={ current }
       id="sub-section"
       borderBottomForH2={ text === undefined }
@@ -55,4 +50,4 @@ const Section: React.FC<Props> = ({ current, _arguments, title, text, sectionNam
   )
 }
 
-export default Section
+export default React.memo(Section)

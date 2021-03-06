@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../../redux/selectors'
+import { getAppInfo } from '../../../redux/selectors'
 import Container from '../../../styles/howProduced'
 import { useInViewWithDelay } from '../../../helpers/hooks'
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const HowProducedComponent: React.FC<Props> = ({ content }) => {
-  const { theme } = useSelector(getThemeInfo)
+  const { theme } = useSelector(getAppInfo)
 
   const { ref, inView } = useInViewWithDelay(100)
 

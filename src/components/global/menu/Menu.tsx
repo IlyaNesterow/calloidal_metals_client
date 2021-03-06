@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import { getAppInfo, getThemeInfo } from '../../../redux/selectors'
+import { getAppInfo } from '../../../redux/selectors'
 import Container from '../../../styles/menu'
 import Content from './Content'
 
 
 const Menu: React.FC = () => {
-  const { menuOpened } = useSelector(getAppInfo)
-  const { theme } = useSelector(getThemeInfo)
+  const { menuOpened, theme } = useSelector(getAppInfo)
 
   useEffect(() => {
     document.body.style.overflow = menuOpened ? 'hidden' : 'unset'
@@ -27,4 +26,4 @@ const Menu: React.FC = () => {
   )
 }
 
-export default Menu
+export default React.memo(Menu)

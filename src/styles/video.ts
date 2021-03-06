@@ -21,13 +21,11 @@ const Container = styled.div<PropsWithCurrentBool>`
     margin-top: ${ props => props.current ? '0' : '5%' };
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    color: ${ props => props.darkTheme ? '#eef' : '#223' };
   }
   iframe{
     width: 80%;
     height: 75%;
     border: none;
-    box-shadow: 0 0 .5rem .1rem ${ props => props.darkTheme ? '#fff' : '#222' };
     border-radius: .5rem;
   }
 

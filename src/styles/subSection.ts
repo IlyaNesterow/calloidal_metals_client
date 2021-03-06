@@ -11,12 +11,10 @@ const Container = styled.div<Props>`
     ${ props => props.bgImageWidth ? ((100 - props.bgImageWidth) / 2 ) : 0 }vw;
   min-width: ${ props => props.bgImageWidth || 100 }vw;
   height: ${ props => props.bgImageHeight || 100 }vh;
-  background-color: ${ props => props.darkTheme ? 'rgba(10, 10, 10, .7)' : 'rgba(250, 250, 250, .7)' };
   padding: 1rem;
   overflow: scroll;
 
   h2{
-    color: ${ props => props.darkTheme ? '#eef' : '#111' };
     font-size: 2rem;
     font-weight: 100;
     text-align: center;
@@ -29,7 +27,6 @@ const Container = styled.div<Props>`
     border-bottom: ${ props => props.borderBottomForH2 ? 'solid .1rem #888' : 'none' };
   }
   p{
-    color: #${ props => props.darkTheme ? 'eef' : '111' };
     margin: 1rem;
     padding-bottom: .5rem;
     border-bottom: solid 1px #888;

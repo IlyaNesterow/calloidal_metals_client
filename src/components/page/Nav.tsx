@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { isMobile } from 'react-device-detect'
-import { useSelector } from 'react-redux'
 
 import Container from '../../styles/nav'
-import { getThemeInfo } from '../../redux/selectors'
 
 import { DivOnClick } from '../../types/functions'
 
@@ -14,7 +12,6 @@ interface Props{
 }
 
 const Nav: React.FC<Props> = ({ links, setCurrent, current }) => {
-  const { theme } = useSelector(getThemeInfo)
   const [ height, setHeight ] = useState<number>(window.innerHeight)
 
   useEffect(() => {
@@ -26,7 +23,7 @@ const Nav: React.FC<Props> = ({ links, setCurrent, current }) => {
   if(isMobile && window.innerWidth < 800) return null
 
   return(
-    <Container darkTheme={ theme }>
+    <Container id="nav">
       <div>
         { links.map((l, i) => (
             <Link 
@@ -65,4 +62,4 @@ const Link: React.FC<PropsForLink> = ({ onClick, content, current }) => (
   </div>
 )
 
-export default Nav
+export default React.memo(Nav)

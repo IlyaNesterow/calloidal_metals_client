@@ -16,4 +16,4 @@ const Intro: React.FC<Props> = ({ text, title }) => {
   )
 }
 
-export default Intro
+export default React.memo(Intro)

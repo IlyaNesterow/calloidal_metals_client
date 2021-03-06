@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { PropsWithTheme } from '../types/styles'
 
 
-const Page = styled.div<PropsWithTheme>`
+const Page = styled.div`
   width: 100vw;
   height: auto;
 
@@ -21,11 +20,8 @@ const Page = styled.div<PropsWithTheme>`
     font-size: 1.4rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    color: ${ props => props.darkTheme ? '#eef' : '#223' };
   }
   a{
-    display: block;
-    color: #${ props => props.darkTheme ? 'fff' : '111' };
     font-size: 1.3rem;
   }
   #first-slide,  

@@ -15,7 +15,6 @@ const Container = styled.div<Props>`
   }
   #intro{
     padding: 2rem;
-    background-color: ${ props => props.darkTheme ? 'rgba(10, 10, 10, .6)' : 'rgba(250, 250, 250, .6)' };
   }
   #intro h2{
     font-size: 2.9rem;

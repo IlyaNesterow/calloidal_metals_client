@@ -1,7 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-import { getThemeInfo } from '../../../redux/selectors'
 import Container from '../../../styles/introduction'
 import Intro from './Intro'
 import Video from './Video'
@@ -16,7 +14,6 @@ interface Props {
 }
 
 const IntroductionComponent: React.FC<Props> = ({ content }) => {
-  const { theme } = useSelector(getThemeInfo)
   
   const { setCurrentX, transformX, currentX } = useTransforms(true)
 
@@ -26,7 +23,6 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
   
   return(
     <Container 
-      darkTheme={ theme }
       bgImage={ content.bgImage }
       transformX={ transformX }
       current={ currentForStyle === 0 }
@@ -59,4 +55,4 @@ const IntroductionComponent: React.FC<Props> = ({ content }) => {
 }
 
 
-export default IntroductionComponent
+export default React.memo(IntroductionComponent)
