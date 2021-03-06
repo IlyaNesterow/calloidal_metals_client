@@ -24,6 +24,14 @@ const Main: React.FC<Props> = ({ page, content }) => {
   useEffect(() => window.scrollTo(0, 0), [])
 
   useEffect(() => {
+    document.title += ` ${ page }`
+    return () => {
+      const oldTitle = document.title.split(' ')
+      document.title = oldTitle.splice(oldTitle.length - 2).join(' ')
+    }
+  }, [ page ])
+
+  useEffect(() => {
     const handleScroll = () => {
       window.innerWidth > 650
         ? setCurrent(Math.floor(window.pageYOffset / window.innerHeight))

@@ -121,7 +121,7 @@ const Page = styled.div`
     }
     h2{
       font-weight: 400;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Rubik', sans-serif;
     }
     h3, a, li{
       font-weight: 300;
