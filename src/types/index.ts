@@ -25,11 +25,6 @@ export interface SubSection extends SectionWithResizableImage{
   _arguments: Argument[]
 }
 
-export interface VideoContent{
-  url: string
-  description: string
-}
-
 export interface PdfFile extends SectionWithResizableImage {
   url: string
   description: string
@@ -37,7 +32,7 @@ export interface PdfFile extends SectionWithResizableImage {
 
 export interface Introduction extends SectionWithImage {
   text: string
-  videos?: VideoContent[]
+  videos?: Link[]
 }
 
 export interface Info extends SectionWithImage {
@@ -65,8 +60,8 @@ export interface OtherSources extends Section {
 
 export interface Page {
   introduction: Introduction
-  info: Info
-  howProduced?: HowProduced
+  information: Info
+  synthesys?: HowProduced
   sellers: Sellers
   otherSources?: OtherSources
 }

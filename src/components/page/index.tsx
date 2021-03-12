@@ -68,10 +68,10 @@ const Main: React.FC<Props> = ({ page, content }) => {
         <IntroductionComponent 
           content={ getPage(content as Content)?.introduction as Introduction }/>
         <InfoComponent
-          content={ getPage(content as Content)?.info as Info }/>
-        {getPage(content as Content)?.howProduced &&
+          content={ getPage(content as Content)?.information as Info }/>
+        {getPage(content as Content)?.synthesys &&
           <HowProducedComponent
-            content={ getPage(content as Content)?.howProduced as HowProduced }/>
+            content={ getPage(content as Content)?.synthesys as HowProduced }/>
         }
         <SellersComponent
           content={ getPage(content as Content)?.sellers as Sellers }/> 

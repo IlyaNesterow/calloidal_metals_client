@@ -1,20 +1,20 @@
 import React from 'react'
 
-import { VideoContent } from '../../../types'
+import { Link } from '../../../types'
 import Container from '../../../styles/video'
 
-interface Props extends VideoContent{
+interface Props extends Link{
   current: boolean
 }
 
-const Video: React.FC<Props> = ({ url, description, ...props }) => (
+const Video: React.FC<Props> = ({ url, _name, ...props }) => (
   <Container 
     id="video" 
     { ...props }
   >
-    <h3>{ description }</h3>
+    <h3>{ _name }</h3>
     <iframe 
-      title={ description } 
+      title={ _name } 
       src={ url } 
     />
   </Container>
