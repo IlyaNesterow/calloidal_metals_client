@@ -15,8 +15,6 @@ const OtherResources: React.FC<Props> = ({ content }) => {
 
   const { sectionName } = content
 
-  console.log(content)
-
   return(
     <Container
       current={ inView }

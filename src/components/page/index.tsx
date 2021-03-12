@@ -75,9 +75,9 @@ const Main: React.FC<Props> = ({ page, content }) => {
         }
         <SellersComponent
           content={ getPage(content as Content)?.sellers as Sellers }/> 
-        {getPage(content as Content)?.otherSources &&
+        {getPage(content as Content)?.other &&
           <OtherResourcesComponent
-            content={ getPage(content as Content)?.otherSources as OtherSources }/>
+            content={ getPage(content as Content)?.other as OtherSources }/>
         }
         <Nav
           current={ current }

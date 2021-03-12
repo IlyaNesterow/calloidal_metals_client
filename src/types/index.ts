@@ -63,7 +63,7 @@ export interface Page {
   information: Info
   synthesys?: HowProduced
   sellers: Sellers
-  otherSources?: OtherSources
+  other?: OtherSources
 }
 
 export interface Content {
