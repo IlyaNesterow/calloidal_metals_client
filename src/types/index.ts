@@ -1,5 +1,5 @@
 
-export const Pages = ['silver', 'copper', 'gold', 'platinum']
+export const pages: PageName[] = ['silver', 'copper', 'gold', 'platinum']
 
 interface Section {
   sectionName: string
@@ -7,7 +7,7 @@ interface Section {
 }
 
 interface SectionWithImage extends Section {
-  bgImage?: string
+  bgImage: string
 }
 
 interface SectionWithResizableImage extends SectionWithImage {
@@ -15,7 +15,7 @@ interface SectionWithResizableImage extends SectionWithImage {
   bgImageHeight?: number
 }
 
-interface Argument{
+export interface Argument{
   bold?: boolean
   statement: string
 }
@@ -25,7 +25,7 @@ export interface SubSection extends SectionWithResizableImage{
   _arguments: Argument[]
 }
 
-export interface PdfFile extends SectionWithResizableImage {
+export interface PdfFile extends Section {
   url: string
   description: string
 }
@@ -66,11 +66,24 @@ export interface Page {
   other?: OtherSources
 }
 
+export interface IPages {
+  silver: Page
+  platinum: Page
+  gold: Page
+  copper: Page
+}
+
 export interface Content {
   pages: {
     silver: Page
     platinum: Page
     gold: Page
     copper: Page
-  } 
+  }
 }
+
+export type SectionName = keyof Page //'introduction' | 'information' | 'synthesys' | 'sellers' | 'other'
+export type SectionType = Content['pages'][keyof IPages][keyof Page]
+
+export type PageName = keyof IPages
+export type PageType = Content['pages'][keyof IPages]

@@ -6,7 +6,7 @@ import Container from '../../../styles/menu-content'
 import { getAppInfo } from '../../../redux/selectors'
 import { setMenuOpened } from '../../../redux/actions'
 import { NavLinkGenerator } from './types'
-import { Pages } from '../../../types/index'
+import { pages } from '../../../types/index'
 import ExtraLinks from './ExtraNavlinks'
 
 
@@ -48,7 +48,7 @@ const Content: React.FC = () => {
       darkTheme={ theme }
     >
       <div id="inner-container">
-        { generateNavLinks(Pages) }
+        { generateNavLinks(pages) }
         <ExtraLinks/>
       </div>
     </Container>

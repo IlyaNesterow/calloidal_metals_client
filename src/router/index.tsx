@@ -7,38 +7,43 @@ import ErrorMessage from '../components/global/ErrorMessage'
 
 import Page from '../components/page'
 
-import { Pages, Content } from '../types/index'
+import { pages, Content, PageName } from '../types'
 
 interface Props {
   content: Content
 }
 
-const Router: React.FC<Props> = ({ content }) => (
-  <BrowserRouter>
-    <Navbar/>
-    <Menu/>
-    <ErrorMessage/>
-    <Switch>
-      <Redirect
+const Router: React.FC<Props> = ({ content }) => {
+  const createPages: (() => JSX.Element[]) = () => 
+    pages.map((pg: PageName, index) =>
+      <Route 
         exact
-        from="/"
-        to="/silver"
+        path={`/${ pg }`} 
+        key={ pg + index }
+        component={() => 
+          <Page 
+            page={ pg }
+            content={ content }
+          /> 
+        } 
       />
-      {Pages.map(pg =>
-        <Route 
+    )
+
+  return (
+    <BrowserRouter>
+      <Navbar/>
+      <Menu/>
+      <ErrorMessage/>
+      <Switch>
+        <Redirect
           exact
-          path={`/${ pg }`} 
-          key={ pg }
-          component={() => 
-            <Page 
-              page={ pg }
-              content={ content }
-            /> 
-          } 
-        />)
-      }
-    </Switch>
-  </BrowserRouter>
-)
+          from="/"
+          to="/silver"
+        />
+        { createPages() }
+      </Switch>
+    </BrowserRouter>
+  )
+}
 
 export default React.memo(Router)

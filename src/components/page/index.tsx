@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 
-import { Pages } from '../../types'
+import { pages } from '../../types'
 import Container from '../../styles/page'
 import { CurrentPage } from '../../helpers/contexts'
 
@@ -11,25 +12,17 @@ import SellersComponent from './sellers'
 import OtherResourcesComponent from './other'
 import Nav from './Nav' 
 
-import { Page, Content, Introduction, Info, HowProduced, Sellers, OtherSources } from '../../types/index'
+import * as Types from '../../types/index'
 
 interface Props {
-  page: string,
-  content: Content
+  page: Types.PageName,
+  content: Types.Content
 }
 
 const Main: React.FC<Props> = ({ page, content }) => {
   const [ current, setCurrent ] = useState<number>(0)
  
   useEffect(() => window.scrollTo(0, 0), [])
-
-  useEffect(() => {
-    document.title += ` ${ page }`
-    return () => {
-      const oldTitle = document.title.split(' ')
-      document.title = oldTitle.splice(oldTitle.length - 2).join(' ')
-    }
-  }, [ page ])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,48 +34,57 @@ const Main: React.FC<Props> = ({ page, content }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   })
 
-  type GetPageFunc = (obj: Content) => Page | undefined
-  type GetSectionNames = (obj: Page) => string[]
-
-  const getPage: GetPageFunc = (obj) => {
-    const { silver, gold, platinum, copper } = obj.pages
-    switch(page){
-      case 'silver': 
-        return silver
-      case 'gold':
-        return gold
-      case 'platinum':
-        return platinum
-      case 'copper':
-        return copper
-    }
-  }
+  const { information, introduction, sellers, synthesys, other } = content.pages[page]
+ 
+  type GetSectionNames = (obj: Types.Page) => string[]
 
   const getSectionNames: GetSectionNames = (obj) => Object.values(obj).map(p => p.sectionName)
+
+  const generateHelmet = () => (
+    <Helmet>
+      <title>{ introduction.title || introduction.sectionName }</title>
+      <meta 
+        property="og:title" 
+        content={ introduction.title || introduction.sectionName }
+      />
+      <meta property="og:url" content={ window.location.href } />
+      <meta property="og:image" content={ introduction.bgImage } />
+      <meta property="og:image:secure_url"  content={ introduction.bgImage } />
+      <meta property="og:image:type" content={`image/${ introduction.bgImage.split('.').pop() }`} />
+      <meta property="og:description" content={ introduction.text }/>
+      <meta property="og:image:alt" content={ introduction.text } />
+      <meta name="description" content={ introduction.text }/>
+      <meta name="twitter:card" content={ introduction.title } />
+      <meta name="twitter:title" content={ introduction.title } />
+      <meta name="twitter:description" content={ introduction.text } />
+      <meta name="twitter:image" content={ introduction.bgImage } />
+    </Helmet>
+  )
   
-  if(!Pages.some(p => p === page)) return null
+  if(!pages.some(p => p === page)) return null
 
   return(
     <Container>
       <CurrentPage.Provider value={ page }>
+        { generateHelmet() }
         <IntroductionComponent 
-          content={ getPage(content as Content)?.introduction as Introduction }/>
+          content={ introduction }/>
         <InfoComponent
-          content={ getPage(content as Content)?.information as Info }/>
-        {getPage(content as Content)?.synthesys &&
+          content={ information }/>
+        {synthesys &&
           <HowProducedComponent
-            content={ getPage(content as Content)?.synthesys as HowProduced }/>
+            content={ synthesys as Types.HowProduced }/>
         }
         <SellersComponent
-          content={ getPage(content as Content)?.sellers as Sellers }/> 
-        {getPage(content as Content)?.other &&
+          content={ sellers }/> 
+        {other &&
           <OtherResourcesComponent
-            content={ getPage(content as Content)?.other as OtherSources }/>
+            content={ other as Types.OtherSources }/>
         }
         <Nav
           current={ current }
           setCurrent={ setCurrent }
-          links={ getSectionNames(getPage(content as Content) as Page) }
+          links={ getSectionNames(content.pages[page]) }
         />
       </CurrentPage.Provider>
     </Container>
