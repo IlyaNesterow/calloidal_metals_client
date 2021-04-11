@@ -12,9 +12,10 @@ const Container = styled.div<Props>`
   min-width: ${ props => props.bgImageWidth || 100 }vw;
   height: ${ props => props.bgImageHeight || 100 }vh;
   padding: 1rem;
+  padding-left: ${ props => props.bgImageWidth === 100? '8%' : 0 };
   overflow: scroll;
 
-  h2{
+  h2 {
     font-size: 2rem;
     font-weight: 100;
     text-align: center;

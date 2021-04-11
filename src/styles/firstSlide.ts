@@ -10,7 +10,7 @@ const Container = styled.div<Props>`
   min-width: ${ props => props.bgImageWidth || 100 }vw;
   height: ${ props => props.bgImageHeight || 100 }vh;
   transition: background-color 1s;
-  padding: 2%;
+  padding: 6%;
   
   h2{
     text-align: right;
